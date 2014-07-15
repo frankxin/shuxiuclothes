@@ -1,15 +1,16 @@
 /*author: frankxin.zhang*/
 
 #showbox{
-	width: 700px;
-	height: 240px;
+	width: 228px;
+	height: auto;
 	background-color:#FFFFF0;
-	border-radius: 10px;
 	position: relative;
-	top: 70px;
+	top: 35px;
 	margin:auto;
-	padding: 10px 10px;
+	margin-left:80px;
+	padding: 3px;
 	margin-bottom: 30px;
+	float:left;
 }
 #showbox-inner{
 	width: 100%;
@@ -18,11 +19,24 @@
 	border: 1px solid #969696;
 	border-radius: 3px;
 }
-.details{
+#showbox #showbox-inner .details{
+	font-size: 18px;
+	line-height: 1.618; 
+	color:#ccc;
+	padding-top: 52px;
+	width: 70%;
+}
+#showbox #showbox-inner .details #price{
+	font-size: 21px;
+}
+#showbox #showbox-inner .details #price span{
+	font-size:15px;
+}
+/*.details{
 	padding-top: 52px;
 	text-shadow: 1px 1px 5px black;
 	width: 70%;
-}
+}*/
 .details p{
 	padding: 0px 0px 15px; 
 }
@@ -88,7 +102,7 @@
 	background-color:#FFFFF0;
 }
 #content{
-	width: 700px;
+	width: 1024px;
 	height:auto;
 	margin: auto; 
   	position: absolute; 
@@ -101,4 +115,18 @@
 	position: relative;
 	top: 150px;
 	left:400px;
+	width: 400px;
+	height: 47px;
+}
+.btn-group label{
+	margin-right: 20px;
+	border-radius: 4px !important;
+	width:70px;
+}
+.btn-pos{
+	width:100%;
+	margin-bottom: 10px;
+}
+.display-peijian{
+	display:none;
 }

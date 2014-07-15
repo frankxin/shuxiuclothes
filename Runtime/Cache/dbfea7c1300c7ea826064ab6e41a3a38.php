@@ -226,10 +226,10 @@ function HS_setDate(inputObj){
       </div>
       <ul class="nav nav-tabs">
         <?php if(isset($_SESSION['user'])): ?><li><a href="#" data-toggle="modal">你好，<?=$_SESSION['user']['real_name']?></a></li>
-          <li><a href="<?php echo U('User/loginout');?>">退出</a></li>
+          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
           <li><a href="<?php echo U('User/UserMenu');?>">用户中心</a></li>
         <?php else: ?>
-          <li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
+          <li><a href="#" id="judgeMethod" data-toggle="modal" data-target="#myModal">登录</a></li>
           <li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li><?php endif; ?>
         <li class="dropdown zzx-hide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的蜀秀 <b class="caret"></b></a>
@@ -245,9 +245,9 @@ function HS_setDate(inputObj){
     <div class="zzx-nav" id="active">
       <ul>
         <li><a href="__APP__">首页</a></li>
-        <li><a href="<?php echo U("Order/index");?>">正装租赁</a></li>
-        <li><a href="<?php echo U("Order/info");?>">信息发布</a></li>
-        <li><a href="#">公司介绍</a></li>
+        <li><a class="preventEvent" data-toggle="modal" href="#">正装租赁</a></li>
+        <li><a href="<?php echo U("SPage/view",array("type"=>0,"cat"=>2));?>">信息发布</a></li>
+        <li><a href="<?php echo U("SPage/view",array("type"=>1,"cat"=>3));?>">公司介绍</a></li>
       </ul>
       <span class="zzx-contact zzx-hide">联系电话：028-12580002</span>
     </div>
@@ -340,7 +340,12 @@ function HS_setDate(inputObj){
             </div>
         </div>
         <div class="form-group">
-          <label for="inputCheck" class="col-sm-2 control-label"><img style="width:149px;height:49px;" src="__APP__/Index/verify/"></label>
+          <script language="JavaScript">
+            function changeVerify(){
+            document.getElementById('verifyImg').src='__URL__/verify/';
+            }
+          </script>
+          <label for="inputCheck" class="col-sm-2 control-label"><img id='verifyImg' style="width:149px;height:49px;" src="__APP__/Index/verify/" onClick="changeVerify()" title="点击刷新验证码"></label>
           <div class="col-sm-10" style="position:relative;left:80px;top:15px;">
                 <input type="checkcode" class="form-control" name="verify" id="inputCheckcode" placeholder="请输入验证码">
             </div>
@@ -358,6 +363,25 @@ function HS_setDate(inputObj){
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <script>
+      window.onload=function(){
+        var ojudge = document.getElementById('judgeMethod');
+        var txt = ojudge.childNodes[0].nodeValue;
+        var preEve = document.getElementsByClassName('preventEvent');
+
+        preEve[0].onclick=function (){
+            if (txt==="登录")
+            {
+                preEve[0].href = "#myModal";
+            }
+            else
+            {
+                preEve[0].href = "<?php echo U("Order/index");?>";          
+            }
+        }    
+      }
+    </script>
+
 
     <!--maincontent-->
 
@@ -377,11 +401,20 @@ function HS_setDate(inputObj){
           </div>
         </div>
       </div>
-<!-- indexCon end -->
+      <!-- indexCon end -->
       <div class="intro">
         <div class="item-price">
           <span class="item-price-detail1">租赁价格：</span><span class="item-price-detail2">20</span>
           <span class="item-price-detail3">RMB</span><span class="item-price-detail4">/天</span>
+        </div>
+        <div class="item-size" id="item-size">
+          <span class="item-size-detail1">颜色:</span>
+          <span class="item-size-detail2">黑</span>
+          <span class="item-size-detail2">蓝</span>
+          <span class="item-size-detail2">红</span>
+          <span class="item-size-detail2">花色</span>
+          <span class="item-size-detail2">粉</span>
+          <div class="clear"></div>
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">型号:</span>
@@ -397,8 +430,8 @@ function HS_setDate(inputObj){
           结束时间：<input type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)">
         </div>
         <div class="item-goto">
-          <span class="item-goto-shoppingcar"><a href="page1.html">加入购物车，再去看看别的</a></span>
-          <span class="item-goto-shoppingcar item-distance"><a href="submit.html">我选好了，去提交订单</a></span>
+          <span class="item-goto-shoppingcar"><a href="page1.html">返回</a></span>
+          <span class="item-goto-shoppingcar item-distance"><a href="submit.html">我选好了，进入下一步</a></span>
           <div class="clear"></div>
         </div>
       </div>

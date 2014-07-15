@@ -18,27 +18,6 @@
     	background:url("../Public/images/mybg.jpg");
     }
     </style>
-    <script type="text/javascript">
-    window.onload=function(){
-        var oMancolor=document.getElementById("mancolor");
-        var oWomencolor=document.getElementById("womencolor");
-        oMancolor.style.display="none";
-        oWomencolor.style.display='none';
-
-        var odiv=document.getElementById('sex');
-        var alink=odiv.getElementsByTagName('a');
-        alink[0].onclick=function(){
-            oMancolor.style.display='block';
-            oWomencolor.style.display='none';
-        }
-        alink[1].onclick=function(){
-            oMancolor.style.display='none';
-            oWomencolor.style.display='block';
-        }
-
-    
-    }
-    </script>
 </head>
 <body>
 	<div id="zzx-header-top">
@@ -48,8 +27,9 @@
       </div>
       <ul class="nav nav-tabs">
         <?php if(isset($_SESSION['user'])): ?><li><a href="#" data-toggle="modal">你好，<?=$_SESSION['user']['real_name']?></a></li>
-          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
+          <li><a href="{}">购物车</a></li>
           <li><a href="<?php echo U('User/UserMenu');?>">用户中心</a></li>
+          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
         <?php else: ?>
           <li><a href="#" id="judgeMethod" data-toggle="modal" data-target="#myModal">登录</a></li>
           <li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li><?php endif; ?>
@@ -208,18 +188,6 @@
     <div id="content">
     <!--选衣服流程-->
     <!-- Split button -->
-    <div class="btn-group" style="padding-right:20px; ">
-      <button type="button" class="btn btn-info">您是要预定正装还是配件呢？</button>
-      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-        <span class="caret"></span>
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">正装</a></li>
-        <li class="divider"></li>
-        <li><a href="#">配件</a></li>
-      </ul>
-    </div>
  <!--  	<div id="select-order">
     	<ul>
     		<li><a href="#"><img src="../Public/images/select1.jpg"></a></li>
@@ -229,17 +197,34 @@
     </div> -->
     <!--条件选择-->
     <!-- Split button -->
-    <div class="btn-group">
-      <button type="button" class="btn btn-success">请选择您的性别</button>
-      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-        <span class="caret"></span>
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">我是男生</a></li>
-        <li class="divider"></li>
-        <li><a href="#">我是女生</a></li>
-      </ul>
+    <div style="border-bottom: 3px dashed white;border-radius: 4px;padding-left: 145px;">
+        <div class="btn-group btn-pos" data-toggle="buttons">
+            <label class="btn btn-primary active ">
+                <input type="radio" name="options" id="option1" checked> 男
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option2"> 女
+            </label>
+        </div>
+        <div class="btn-group btn-pos" data-toggle="buttons">
+            <label class="btn btn-primary active close-peijian">
+                <input type="radio" name="options" id="option1"  checked> 正装
+            </label>
+            <label class="btn btn-primary findmore">
+                <input type="radio" name="options" id="option2" > 配件
+            </label>
+        </div>
+        <div class="btn-group btn-pos display-peijian" data-toggle="buttons">
+            <label class="btn btn-primary active ">
+                <input type="radio" name="options" id="option1" checked> 鞋子
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option2"> 领带
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option3"> 衬衫
+            </label>
+        </div>
     </div>
     <!-- <div id="some-choice-all">
     	<div id="sex" class="some-choice" style="font-size:20px;line-height: 1.618; color:#ccc;">
@@ -247,20 +232,30 @@
     	</div>
     </div> -->
     <!--衣服展示-->
-    <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div id="showbox">
-                <div id="showbox-inner">
-                <a href="#"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
-                <div class="details" style="font-size: 20px;line-height: 1.618; color:#ccc;">
-                 <p><?php echo ($vo["description"]); ?></p>
-                    <div id="price" style="font-size:25px;line-height: 1.618; color:#ccc">
-                        <?php echo ($vo["price"]); ?>RMB<span style="font-size:15px">/天</span>
+    <div style="position:relative;">
+        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div id="showbox">
+                    <div id="showbox-inner">
+                    <a href="#"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
+                    <div class="details">
+                     <p><?php echo ($vo["description"]); ?></p>
+                        <div id="price">
+                            <?php echo ($vo["price"]); ?>RMB<span>/天</span>
+                        </div>
                     </div>
                 </div>
-                <div class="more">
-                    <a class="check-more" href="<?php echo U("Order/detail",array("id"=>$vo['id']));?>">查看详情</a>
+            </div><?php endforeach; endif; else: echo "" ;endif; ?>
+        <div id="showbox" style="float:left;">
+            <div id="showbox-inner">
+                <a href="#"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
+                <div class="details">
+                    <P>测试</P>
+                    <div id="price">
+                        20RMB<span>/天</span>
+                    </div>
                 </div>
             </div>
-        </div><?php endforeach; endif; else: echo "" ;endif; ?>
+        </div>
+    </div>
     <div id="index">
     	<ul class="pagination pagination-lg">
             <?php echo ($page); ?>
@@ -280,6 +275,14 @@
     var aLi=oUl[0].getElementsByTagName("li");
 
     aLi[1].className+="zzx-active";
+</script>
+<script type="text/javascript">
+    $(".findmore").click(function(){
+        $(".display-peijian").css("display","inline-block");
+    })
+    $(".close-peijian").click(function(){
+        $(".display-peijian").css("display","none");
+    })
 </script>    
 </body>
 </html>

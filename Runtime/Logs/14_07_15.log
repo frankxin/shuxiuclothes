@@ -4,3 +4,12 @@ ERR: 模板不存在[E:/wamp/www/shuxiuclothes/Tpl/./Tpl/SPage/theme/default/con
 [ 2014-07-15T12:00:01+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/SPage/view/type/1/cat/3.html
 ERR: 模板不存在[E:/wamp/www/shuxiuclothes/Tpl/./Tpl/SPage/theme/default/content2.html.html]
 
+[ 2014-07-15T21:40:29+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/%7B%7D
+ERR: 非法操作:{}
+
+[ 2014-07-15T22:36:29+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/SPage/view/type/1/cat/3.html
+ERR: 模板不存在[E:/wamp/www/shuxiuclothes/Tpl/./Tpl/SPage/theme/default/content2.html.html]
+
+[ 2014-07-15T23:41:55+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/Order/%7B%7D
+ERR: 非法操作:{}
+
