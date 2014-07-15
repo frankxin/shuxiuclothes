@@ -5,7 +5,7 @@
 		{
 			$gender = empty($_REQUEST['gender'])?0:1;
 			$ca = D("CA");
-			$data = $ca->getPaginateData(0,array('gender'=>$gender),15);
+			$data = $ca->getPaginateData(0,array('gender'=>$gender),2);
 			foreach ($data["list"] as $key=>$value) {
 				$data["list"][$key]["imgs"] = $ca->getImgs($value["id"]);
 				$data["list"][$key]["imgs"] = $data["list"][$key]["imgs"][0];
