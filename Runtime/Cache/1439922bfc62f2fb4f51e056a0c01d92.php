@@ -13,19 +13,14 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript">
     window.onload=function(){
-    	var myinfo=document.getElementById("myinfoM");
-    	var mylist=document.getElementById("mylistM");
-    	var oD1=document.getElementById("myinfo");
-    	var oD2=document.getElementById("mylist");
-
-    	myinfo.onclick=function(){
-            oD1.style.display='block';
-            oD2.style.display='none';
-        }
-        mylist.onclick=function(){
-            oD1.style.display='none';
-            oD2.style.display='block';
-        }
+      $("#myinfoM").click(function(){
+          $("#myinfo").css("display","block");
+          $("#mylist").css("display","none");
+      })
+    	$("#mylistM").click(function(){
+          $("#mylist").css("display","block");
+          $("#myinfo").css("display","none");
+      })
     }
     </script>
 </head>
@@ -37,10 +32,10 @@
       </div>
       <ul class="nav nav-tabs">
         <?php if(isset($_SESSION['user'])): ?><li><a href="#" data-toggle="modal">你好，<?=$_SESSION['user']['real_name']?></a></li>
-          <li><a href="<?php echo U('User/loginout');?>">退出</a></li>
+          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
           <li><a href="<?php echo U('User/UserMenu');?>">用户中心</a></li>
         <?php else: ?>
-          <li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
+          <li><a href="#" id="judgeMethod" data-toggle="modal" data-target="#myModal">登录</a></li>
           <li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li><?php endif; ?>
         <li class="dropdown zzx-hide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的蜀秀 <b class="caret"></b></a>
@@ -56,9 +51,9 @@
     <div class="zzx-nav" id="active">
       <ul>
         <li><a href="__APP__">首页</a></li>
-        <li><a href="<?php echo U("Order/index");?>">正装租赁</a></li>
-        <li><a href="<?php echo U("Order/info");?>">信息发布</a></li>
-        <li><a href="#">公司介绍</a></li>
+        <li><a class="preventEvent" data-toggle="modal" href="#">正装租赁</a></li>
+        <li><a href="<?php echo U("SPage/view",array("type"=>0,"cat"=>2));?>">信息发布</a></li>
+        <li><a href="<?php echo U("SPage/view",array("type"=>1,"cat"=>3));?>">公司介绍</a></li>
       </ul>
       <span class="zzx-contact zzx-hide">联系电话：028-12580002</span>
     </div>
@@ -151,7 +146,12 @@
             </div>
         </div>
         <div class="form-group">
-          <label for="inputCheck" class="col-sm-2 control-label"><img style="width:149px;height:49px;" src="__APP__/Index/verify/"></label>
+          <script language="JavaScript">
+            function changeVerify(){
+            document.getElementById('verifyImg').src='__URL__/verify/';
+            }
+          </script>
+          <label for="inputCheck" class="col-sm-2 control-label"><img id='verifyImg' style="width:149px;height:49px;" src="__APP__/Index/verify/" onClick="changeVerify()" title="点击刷新验证码"></label>
           <div class="col-sm-10" style="position:relative;left:80px;top:15px;">
                 <input type="checkcode" class="form-control" name="verify" id="inputCheckcode" placeholder="请输入验证码">
             </div>
@@ -169,6 +169,25 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <script>
+      window.onload=function(){
+        var ojudge = document.getElementById('judgeMethod');
+        var txt = ojudge.childNodes[0].nodeValue;
+        var preEve = document.getElementsByClassName('preventEvent');
+
+        preEve[0].onclick=function (){
+            if (txt==="登录")
+            {
+                preEve[0].href = "#myModal";
+            }
+            else
+            {
+                preEve[0].href = "<?php echo U("Order/index");?>";          
+            }
+        }    
+      }
+    </script>
+
 <div class="content">
 	<div class="panel-group width-control" id="accordion">
   		<div class="panel panel-default">
@@ -206,10 +225,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>张兆鑫</td>
-            <td>18380421239</td>
-            <td>frankxin93@hotmail.com</td>
-           	<td><a href="#" data-toggle="modal" data-target="#myModal3">修改密码</a></td>
+            <td><?php echo ($_SESSION['user']['real_name']); ?></td>
+            <td><?php echo ($_SESSION['user']['phone']); ?></td>
+            <td><?php echo ($_SESSION['user']['email']); ?></td>
+           	<td><a href="#">修改密码</a></td>
           </tr>
         </tbody>
     </table>
@@ -228,54 +247,27 @@
               </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>2012221020</td>
-            <td>呵呵呵呵</td>
-            <td>170cm</td>
-           	<td>灰色</td>
-           	<td>30</td>
-          </tr>
+          <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                <td><?php echo ($vo["id"]); ?></td>
+                <td><?php echo ($vo["ca"]['description']); ?></td>
+                <td><?php echo ($vo["casize"]); ?>cm</td>
+                <td><?php echo ($vo["color"]["color"]); ?></td>
+                <td><?php echo ($vo["price"]); ?></td>
+              </tr><?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
  </div>
-  </div>
+  	</div>
 </div>
-<!--登陆模态框-->
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content" style="background-color:rgba(0,0,0,0.5); width:500px;height:350px;">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 class="modal-title" id="myModalLabel" style="text-align:center;color:#F5FFFA;font-style:bold;">修改密码</h3>
-          </div>
-          <div class="modal-body">
-            <form method="post" action="<?php echo U("User/login");?>" class="form-horizontal" role="form" style="width:450px;position:relative;left:80px;top:30px">
-          <div class="form-group">
-            <label for="inputEmail1" class="col-sm-2 control-label" style="color:#F5FFFA"><img src="../Public/images/lock.png"></label>
-              <div class="col-sm-10">
-                  <input type="password" name="passOld" class="form-control" id="inputOldPassWord" placeholder="请输入新密码">
-              </div>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword1" class="col-sm-2 control-label"style="color:#F5FFFA"><img src="../Public/images/lock.png"></label>
-              <div class="col-sm-10">
-                  <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="确认密码">
-              </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10" style="position:relative;left:50px;">
-                <button type="submit" class="btn btn-default">确认</button>
-            </div>
-          </div>
-      </form>
-          </div>
-        <!--<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        </div>-->
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal --> 
+ <script type="text/javascript">
+      $("#myinfoM").click(function(){
+          $("#myinfo").css("display","block");
+          $("#mylist").css("display","none");
+      })
+      $("#mylistM").click(function(){
+          $("#mylist").css("display","block");
+          $("#myinfo").css("display","none");
+      })
+</script> 
 </body>
 </html>

@@ -7,7 +7,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../Public/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../Public/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../Public/css/page1.css">
+    <link rel="stylesheet" type="text/css" href="../Public/css/list.css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -207,26 +207,45 @@
 
     <div id="content">
     <!--选衣服流程-->
-  	<div id="select-order">
+    <!-- Split button -->
+    <div class="btn-group" style="padding-right:20px; ">
+      <button type="button" class="btn btn-info">您是要预定正装还是配件呢？</button>
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">正装</a></li>
+        <li class="divider"></li>
+        <li><a href="#">配件</a></li>
+      </ul>
+    </div>
+ <!--  	<div id="select-order">
     	<ul>
     		<li><a href="#"><img src="../Public/images/select1.jpg"></a></li>
     		<li><a href="page1.1.html"><img src="../Public/images/selected2.jpg"></a></li>
     		<li><a href="#"><img src="../Public/images/select-disable3.jpg"></a></li>
     	</ul>    		
-    </div>
+    </div> -->
     <!--条件选择-->
-    <div id="some-choice-all">
+    <!-- Split button -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-success">请选择您的性别</button>
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">我是男生</a></li>
+        <li class="divider"></li>
+        <li><a href="#">我是女生</a></li>
+      </ul>
+    </div>
+    <!-- <div id="some-choice-all">
     	<div id="sex" class="some-choice" style="font-size:20px;line-height: 1.618; color:#ccc;">
     	请选择性别：<a href="<?php echo U('Order/index',array('gender'=>0));?>"><span class="choice-deco">男</span></a><a href="<?php echo U('Order/index',array('gender'=>1));?>" ><span class="choice-deco">女</span></a>
     	</div>
-    	<div id="mancolor" class="some-choice" style="font-size:20px;line-height: 1.618; color:#ccc; ">
-    	请选择颜色：<a href="#"><span class="choice-deco">蓝色</span></a><a href="#"><span class="choice-deco">黑色</span></a>
-    	</div>
-        <div id="womencolor" class="some-choice" style="font-size:20px;line-height: 1.618; color:#ccc; ">
-        请选择颜色：<a href="#"><span class="choice-deco">蓝色</span></a><a href="#"><span class="choice-deco">黑色</span></a><a href="#"><span class="choice-deco">白色</span></a><a href="#"><span class="choice-deco">褐色</span></a><a href="#"><span class="choice-deco">灰色</span></a>
-        </div>
-
-    </div>
+    </div> -->
     <!--衣服展示-->
     <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div id="showbox">
                 <div id="showbox-inner">
@@ -245,13 +264,13 @@
     <div id="index">
     	<ul class="pagination pagination-lg">
             <?php echo ($page); ?>
-  			<!--<li><a href="#">&laquo;</a></li>
+  			<li><a href="#">&laquo;</a></li>
   			<li><a href="#" class="active">1</a></li>
   			<li><a href="#">2</a></li>
   			<li><a href="#">3</a></li>
   			<li><a href="#">4</a></li>
   			<li><a href="#">5</a></li>
-  			<li><a href="#">&raquo;</a></li>-->
+  			<li><a href="#">&raquo;</a></li>
 		</ul>
     </div>
     </div>

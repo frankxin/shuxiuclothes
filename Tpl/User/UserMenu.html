@@ -13,19 +13,14 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript">
     window.onload=function(){
-    	var myinfo=document.getElementById("myinfoM");
-    	var mylist=document.getElementById("mylistM");
-    	var oD1=document.getElementById("myinfo");
-    	var oD2=document.getElementById("mylist");
-
-    	myinfo.onclick=function(){
-            oD1.style.display='block';
-            oD2.style.display='none';
-        }
-        mylist.onclick=function(){
-            oD1.style.display='none';
-            oD2.style.display='block';
-        }
+      $("#myinfoM").click(function(){
+          $("#myinfo").css("display","block");
+          $("#mylist").css("display","none");
+      })
+    	$("#mylistM").click(function(){
+          $("#mylist").css("display","block");
+          $("#myinfo").css("display","none");
+      })
     }
     </script>
 </head>
@@ -103,6 +98,16 @@
     </table>
  </div>
   	</div>
-</div> 
+</div>
+ <script type="text/javascript">
+      $("#myinfoM").click(function(){
+          $("#myinfo").css("display","block");
+          $("#mylist").css("display","none");
+      })
+      $("#mylistM").click(function(){
+          $("#mylist").css("display","block");
+          $("#myinfo").css("display","none");
+      })
+</script> 
 </body>
 </html>
