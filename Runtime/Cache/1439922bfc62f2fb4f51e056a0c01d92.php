@@ -11,18 +11,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../Public/js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript">
-    window.onload=function(){
-      $("#myinfoM").click(function(){
-          $("#myinfo").css("display","block");
-          $("#mylist").css("display","none");
-      })
-    	$("#mylistM").click(function(){
-          $("#mylist").css("display","block");
-          $("#myinfo").css("display","none");
-      })
-    }
-    </script>
 </head>
 <body>
 <div id="zzx-header-top">
@@ -32,8 +20,9 @@
       </div>
       <ul class="nav nav-tabs">
         <?php if(isset($_SESSION['user'])): ?><li><a href="#" data-toggle="modal">你好，<?=$_SESSION['user']['real_name']?></a></li>
-          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
+          <li><a href="{}">购物车</a></li>
           <li><a href="<?php echo U('User/UserMenu');?>">用户中心</a></li>
+          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
         <?php else: ?>
           <li><a href="#" id="judgeMethod" data-toggle="modal" data-target="#myModal">登录</a></li>
           <li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li><?php endif; ?>
@@ -205,7 +194,7 @@
         				<a href="javascript:;" id="myinfoM">个人信息管理</a>
         			</li>
         			<li>
-        				<a href="javascript:;"id="mylistM">历史订单</a>
+        				<a href="javascript:;"id="mylistM">我的订单</a>
         			</li>
         		</ul>
       		</div>

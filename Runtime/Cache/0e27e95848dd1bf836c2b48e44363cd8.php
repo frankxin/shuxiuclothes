@@ -48,7 +48,7 @@
 </head>
 <body>
 <div class="position">
-    <form method="post" action="<?php echo U("CA/add");?>">
+    <form method="post" action="<?php echo U("CA/add");?>" enctype="multipart/form-data">
 	<div class="positive-clothes">
 		<div style="font-size:24px;font-weight:bold;color:#fff;">商品发布</div>
 		<div class="form-group">
@@ -100,15 +100,15 @@
             </div>
             <div>
                 160
-                <input type="checkbox" name="size[]">
+                <input type="checkbox" name="size[]" value="160">
                 165
-                <input type="checkbox" name="size[]">
+                <input type="checkbox" name="size[]" value="165">
                 170
-                <input type="checkbox" name="size[]">
+                <input type="checkbox" name="size[]" value="170">
                 175
-                <input type="checkbox" name="size[]">
+                <input type="checkbox" name="size[]" value="175">
                 180
-                <input type="checkbox" name="size[]">
+                <input type="checkbox" name="size[]" value="180">
             </div>
         </div>
         <div id="display-control2">
