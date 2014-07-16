@@ -27,7 +27,7 @@
       </div>
       <ul class="nav nav-tabs">
         <?php if(isset($_SESSION['user'])): ?><li><a href="#" data-toggle="modal">你好，<?=$_SESSION['user']['real_name']?></a></li>
-          <li><a href="{}">购物车</a></li>
+          <li><a href="<?php echo U('User/Bucket');?>">购物车</a></li>
           <li><a href="<?php echo U('User/UserMenu');?>">用户中心</a></li>
           <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
         <?php else: ?>
@@ -235,7 +235,7 @@
     <div style="position:relative;">
         <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div id="showbox">
                     <div id="showbox-inner">
-                    <a href="#"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
+                    <a href="<?php echo U("Order/detail",array("id"=>$vo['id']));?>"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
                     <div class="details">
                      <p><?php echo ($vo["description"]); ?></p>
                         <div id="price">
@@ -244,28 +244,10 @@
                     </div>
                 </div>
             </div><?php endforeach; endif; else: echo "" ;endif; ?>
-        <div id="showbox" style="float:left;">
-            <div id="showbox-inner">
-                <a href="#"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
-                <div class="details">
-                    <P>测试</P>
-                    <div id="price">
-                        20RMB<span>/天</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        
     <div id="index">
     	<ul class="pagination pagination-lg">
             <?php echo ($page); ?>
-  			<li><a href="#">&laquo;</a></li>
-  			<li><a href="#" class="active">1</a></li>
-  			<li><a href="#">2</a></li>
-  			<li><a href="#">3</a></li>
-  			<li><a href="#">4</a></li>
-  			<li><a href="#">5</a></li>
-  			<li><a href="#">&raquo;</a></li>
 		</ul>
     </div>
     </div>

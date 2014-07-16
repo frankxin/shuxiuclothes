@@ -226,8 +226,9 @@ function HS_setDate(inputObj){
       </div>
       <ul class="nav nav-tabs">
         <?php if(isset($_SESSION['user'])): ?><li><a href="#" data-toggle="modal">你好，<?=$_SESSION['user']['real_name']?></a></li>
-          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
+          <li><a href="<?php echo U('User/Bucket');?>">购物车</a></li>
           <li><a href="<?php echo U('User/UserMenu');?>">用户中心</a></li>
+          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
         <?php else: ?>
           <li><a href="#" id="judgeMethod" data-toggle="modal" data-target="#myModal">登录</a></li>
           <li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li><?php endif; ?>
@@ -382,19 +383,18 @@ function HS_setDate(inputObj){
       }
     </script>
 
-
+      <?php
+ $detail = D('CA')->getCAdetail($_GET['id']); ?>
     <!--maincontent-->
-
     <div class="main-content">
       <!-- indexCon start -->
       <div class="indexCon">
         <div class="flashBanner">
           <a href="#myPhoto" data-toggle="modal" id="changeHref">
-          <img class="bigImg" width="300" height="200" src="../Public/images/1.jpg" id="bigImg" />
+          <img class="bigImg" width="300" height="200" src= "__PUBLIC__/upload<?php echo ($detail["image"][0]); ?>" id="bigImg" />
           </a>
           <div class="mask">
-        
-            <img src="../Public/images/1.jpg" width="40" height="22" id="imgBtn1" />
+            <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn1" />
         
             <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn2" />
         
@@ -402,6 +402,7 @@ function HS_setDate(inputObj){
         </div>
       </div>
       <!-- indexCon end -->
+      
       <div class="intro">
         <div class="item-price">
           <span class="item-price-detail1">租赁价格：</span><span class="item-price-detail2">20</span>
