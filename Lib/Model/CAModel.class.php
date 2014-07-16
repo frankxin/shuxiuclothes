@@ -64,4 +64,28 @@
 		{
 			return M("clothes_accessory_image")->where(array("id"=>$id))->select();
 		}
+
+		public function getUnitArray($array,$name)
+		{
+
+			foreach ($array as $key => $value) {
+				$return[]=$value[$name];
+			}
+			return $return;
+		}
+
+		public function getCAdetail($id)
+		{
+			$clothesDetail = M("clothes_accessory")->where(array("id"=>$id))->select();
+			$imgaeDetail = M("clothes_accessory_image")->where(array("id"=>$id))->select();
+			$colorDetail = M("color")->where(array("id"=>$id))->select();
+			$sizeDetail = M("size")->where(array("id"=>$id))->select();
+			$detail=$clothesDetail[0];
+			
+			$detail["image"]=$this->getUnitArray($imgaeDetail,"imgurl");
+			$detail["color"]=$this->getUnitArray($colorDetail,"color");
+			$detail["size"]=$this->getUnitArray($sizeDetail,"size");
+			var_dump($detail);
+			return $detail;
+		}
 	}
