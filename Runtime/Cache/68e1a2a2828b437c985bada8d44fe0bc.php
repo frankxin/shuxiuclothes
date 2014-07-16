@@ -144,6 +144,15 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
+        <a href="{}" target="mainframe">
+          文章管理
+        </a>
+      </h4>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
         <a   target="_top" href="<?php echo U("Admin/login_out");?>" >
           退出后台
         </a>

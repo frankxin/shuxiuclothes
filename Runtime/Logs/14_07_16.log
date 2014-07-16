@@ -249,3 +249,27 @@ INFO: [ app_begin ] --END-- [ RunTime:0.003197s ]
 ERR: 非法操作:php
 >>>>>>> 11ca39f349aa70ade289aa3ef4fd4af1b5db1b3f
 
+[ 2014-07-16T20:45:04+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/php/bucketfunction.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002071s ]
+ERR: 非法操作:php
+
+[ 2014-07-16T21:13:35+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/SPage/view/type/1/cat/3.html
+ERR: 模板不存在[E:/wamp/www/shuxiuclothes/Tpl/./Tpl/SPage/theme/default/content2.html.html]
+
+[ 2014-07-16T21:13:45+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/php/bucketfunction.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001971s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002314s ]
+ERR: 非法操作:php
+
+[ 2014-07-16T21:22:36+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/Admin/%7B%7D
+ERR: 非法操作:{}
+
+[ 2014-07-16T21:24:22+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/Admin/%7B%7D
+ERR: 非法操作:{}
+
+[ 2014-07-16T21:42:14+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/Admin/%7B%7D
+ERR: 非法操作:{}
+
