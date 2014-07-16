@@ -17,6 +17,10 @@
 
 		public function detail()
 		{
+			$ca = D("CA");
+			$detail = $ca->getCAdetail($_GET['id']);
+			var_dump($detail);
+			$this->assign('detail',$detail);
 			$this->display();
 		}
 

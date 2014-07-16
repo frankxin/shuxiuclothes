@@ -85,7 +85,7 @@
 			$detail["image"]=$this->getUnitArray($imgaeDetail,"imgurl");
 			$detail["color"]=$this->getUnitArray($colorDetail,"color");
 			$detail["size"]=$this->getUnitArray($sizeDetail,"size");
-			var_dump($detail);
+			//var_dump($detail);
 			return $detail;
 		}
 	}

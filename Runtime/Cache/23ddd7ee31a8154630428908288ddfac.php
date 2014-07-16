@@ -383,8 +383,7 @@ function HS_setDate(inputObj){
       }
     </script>
 
-      <?php
- $detail = D('CA')->getCAdetail($_GET['id']); ?>
+
     <!--maincontent-->
     <div class="main-content">
       <!-- indexCon start -->
@@ -394,9 +393,10 @@ function HS_setDate(inputObj){
           <img class="bigImg" width="300" height="200" src= "__PUBLIC__/upload<?php echo ($detail["image"][0]); ?>" id="bigImg" />
           </a>
           <div class="mask">
-            <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn1" />
+            <?php if(is_array($detail['image'])): $i = 0; $__LIST__ = $detail['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><img src="__PUBLIC__/upload<?php echo ($detail['image'][$key]); ?>" width="40" height="22" id="imgBtn<?php echo ($key); ?>" /><?php endforeach; endif; else: echo "" ;endif; ?>
+            <!-- <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn1" />
         
-            <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn2" />
+            <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn2" /> -->
         
           </div>
         </div>
@@ -405,25 +405,18 @@ function HS_setDate(inputObj){
       
       <div class="intro">
         <div class="item-price">
-          <span class="item-price-detail1">租赁价格：</span><span class="item-price-detail2">20</span>
+          <span class="item-price-detail1">租赁价格：</span><span class="item-price-detail2"><?php echo ($detail['price']); ?></span>
           <span class="item-price-detail3">RMB</span><span class="item-price-detail4">/天</span>
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">颜色:</span>
-          <span class="item-size-detail2">黑</span>
-          <span class="item-size-detail2">蓝</span>
-          <span class="item-size-detail2">红</span>
-          <span class="item-size-detail2">花色</span>
-          <span class="item-size-detail2">粉</span>
+          <?php if(is_array($detail['color'])): $i = 0; $__LIST__ = $detail['color'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2"><?php echo ($detail['color'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
+          
           <div class="clear"></div>
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">型号:</span>
-          <span class="item-size-detail2">160cm</span>
-          <span class="item-size-detail2">165cm</span>
-          <span class="item-size-detail2">170cm</span>
-          <span class="item-size-detail2">175cm</span>
-          <span class="item-size-detail2">180cm</span>
+          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2"><?php echo ($detail['size'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
           <div class="clear"></div>
         </div>
         <div class="item-time">
