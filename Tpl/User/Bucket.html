@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../Public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../Public/css/header.css">
+    <link rel="stylesheet" type="text/css" href="../Public/css/bucket.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../Public/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style type="text/css">
+    body{
+    	background:url("../Public/images/mybg.jpg");
+    }
+    </style>
+</head>
+<body>
+	<!--加入header-->	
+ 	<include file="Public:header"/>
+
+    <div class="pure-g-r bucket-main">
+        <div class="pure-u-1 bucket-main-table">
+            <!-- 商品表格开始 -->
+            <table class="bucket-table bucket-pre">
+                <tbody>
+                    <tr>
+                        <th class="th1">商品信息</th>
+                        <th class="th2">单价（元/天）</th>
+                        <th class="th3">租赁天数</th>
+                        <th class="th4">总计（元）</th>
+                        <th class="th5">操作</th>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="bucket-table bucket-goods">
+                <tbody>
+                    <tr class="bucket-goods-tr">
+                        <th class="th1">
+                            <span>普通商品</span>
+                        </th>
+                        <th class="th2"></th>
+                        <th class="th3"></th>
+                        <th class="th4"></th>
+                        <th class="th5"></th>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 商品总价格栏开始 -->
+
+            <div class="bucket-total">
+                <div class="bucket-batch">
+                    <input type="checkbox" checked="checked">
+                    <span>全选</span>
+                    <a href="javascript:;">批量删除</a>
+                </div>
+                <div class="right">
+                    <p class="price">商品总价（<span>￥250.00</span>）- 活动（<span>￥32.00</span>）= 商品金额总计（<span>￥218.00</span>）</p>
+                    <p>
+                        商品总价（免运费）
+                        <strong>￥218.00</strong>
+                        元
+                    </p>
+                </div>
+            </div>
+
+            <!-- 提交按钮 -->
+
+            <div class="bucket-submit">
+                <button class="my-button">去结算</button>
+            </div>
+        </div>
+    </div>
+<script src="../Public/js/bucket.js"></script>
+</body>
+</html>
