@@ -224,16 +224,14 @@ function HS_setDate(inputObj){
         $detail = D('CA')->getCAdetail($_GET['id']);
       ?>
     <!--maincontent-->
-
     <div class="main-content">
       <!-- indexCon start -->
       <div class="indexCon">
         <div class="flashBanner">
           <a href="#myPhoto" data-toggle="modal" id="changeHref">
-          <img class="bigImg" width="300" height="200" src="../Public/images/1.jpg" id="bigImg" />
+          <img class="bigImg" width="300" height="200" src= "__PUBLIC__/upload{$detail["image"][0]}" id="bigImg" />
           </a>
           <div class="mask">
-        
             <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn1" />
         
             <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn2" />

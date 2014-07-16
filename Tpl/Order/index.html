@@ -73,7 +73,7 @@
         <volist name="list" id="vo">
                 <div id="showbox">
                     <div id="showbox-inner">
-                    <a href="#"><img src="__PUBLIC__/upload{$vo['imgs']['imgurl']}" width="220px" height="220px" style="overflow:hidden;"></a>
+                    <a href="{:U("Order/detail",array("id"=>$vo['id']))}"><img src="__PUBLIC__/upload{$vo['imgs']['imgurl']}" width="220px" height="220px" style="overflow:hidden;"></a>
                     <div class="details">
                      <p>{$vo.description}</p>
                         <div id="price">
@@ -83,18 +83,7 @@
                 </div>
             </div>
         </volist>
-        <div id="showbox" style="float:left;">
-            <div id="showbox-inner">
-                <a href="#"><img src="__PUBLIC__/upload{$vo['imgs']['imgurl']}" width="220px" height="220px" style="overflow:hidden;"></a>
-                <div class="details">
-                    <P>测试</P>
-                    <div id="price">
-                        20RMB<span>/天</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        
     <div id="index">
     	<ul class="pagination pagination-lg">
             {$page}
