@@ -226,7 +226,7 @@ function HS_setDate(inputObj){
       </div>
       <ul class="nav nav-tabs">
         <?php if(isset($_SESSION['user'])): ?><li><a href="#" data-toggle="modal">你好，<?=$_SESSION['user']['real_name']?></a></li>
-          <li><a href="{}">购物车</a></li>
+          <li><a href="<?php echo U('User/Bucket');?>">购物车</a></li>
           <li><a href="<?php echo U('User/UserMenu');?>">用户中心</a></li>
           <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
         <?php else: ?>

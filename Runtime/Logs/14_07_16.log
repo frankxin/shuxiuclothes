@@ -249,3 +249,33 @@ INFO: [ app_begin ] --END-- [ RunTime:0.003197s ]
 ERR: 非法操作:php
 >>>>>>> 11ca39f349aa70ade289aa3ef4fd4af1b5db1b3f
 
+[ 2014-07-16T15:10:06+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/php/bucketfunction.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000634s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000720s ]
+ERR: 非法操作:php
+
+[ 2014-07-16T15:10:11+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/php/bucketfunction.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000658s ]
+ERR: 非法操作:php
+
+[ 2014-07-16T15:10:50+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/php/bucketfunction.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+ERR: 非法操作:php
+
+[ 2014-07-16T15:15:59+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/php/bucketfunction.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000624s ]
+ERR: 非法操作:php
+
+[ 2014-07-16T15:17:09+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/php/bucketfunction.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000618s ]
+ERR: 非法操作:php
+
