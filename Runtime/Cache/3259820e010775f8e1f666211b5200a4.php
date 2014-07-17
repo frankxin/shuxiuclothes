@@ -18,22 +18,23 @@
   	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
-        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
-	   <div id="zzx-header-top">
+	<div id="zzx-header-top">
       <div class="zzx-header-top-logo">
         <img src="../Public/images/logo.png">
         <img src="../Public/images/head.png">
       </div>
       <ul class="nav nav-tabs">
         <?php if(isset($_SESSION['user'])): ?><li><a href="#" data-toggle="modal">你好，<?=$_SESSION['user']['real_name']?></a></li>
-          <li><a href="<?php echo U('User/loginout');?>">退出</a></li>
+          <li><a href="<?php echo U('User/Bucket');?>">购物车</a></li>
           <li><a href="<?php echo U('User/UserMenu');?>">用户中心</a></li>
+          <li><a href="<?php echo U('User/loginout');?>" id="judgeMethod">退出</a></li>
         <?php else: ?>
-          <li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
+          <li><a href="#" id="judgeMethod" data-toggle="modal" data-target="#myModal">登录</a></li>
           <li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li><?php endif; ?>
         <li class="dropdown zzx-hide">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的蜀秀 <b class="caret"></b></a>
@@ -49,9 +50,9 @@
     <div class="zzx-nav" id="active">
       <ul>
         <li><a href="__APP__">首页</a></li>
-        <li><a href="<?php echo U("Order/index");?>">正装租赁</a></li>
-        <li><a href="<?php echo U("Order/info");?>">信息发布</a></li>
-        <li><a href="#">公司介绍</a></li>
+        <li><a class="preventEvent" data-toggle="modal" href="#">正装租赁</a></li>
+        <li><a href="<?php echo U("SPage/view",array("type"=>0,"cat"=>2));?>">信息发布</a></li>
+        <li><a href="<?php echo U("SPage/view",array("type"=>1,"cat"=>3));?>">公司介绍</a></li>
       </ul>
       <span class="zzx-contact zzx-hide">联系电话：028-12580002</span>
     </div>
@@ -144,7 +145,12 @@
             </div>
         </div>
         <div class="form-group">
-          <label for="inputCheck" class="col-sm-2 control-label"><img style="width:149px;height:49px;" src="__APP__/Index/verify/"></label>
+          <script language="JavaScript">
+            function changeVerify(){
+            document.getElementById('verifyImg').src='__URL__/verify/';
+            }
+          </script>
+          <label for="inputCheck" class="col-sm-2 control-label"><img id='verifyImg' style="width:149px;height:49px;" src="__APP__/Index/verify/" onClick="changeVerify()" title="点击刷新验证码"></label>
           <div class="col-sm-10" style="position:relative;left:80px;top:15px;">
                 <input type="checkcode" class="form-control" name="verify" id="inputCheckcode" placeholder="请输入验证码">
             </div>
@@ -162,13 +168,25 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <div id="select-order">
-    	<ul>
-    		<li><a><img src="../Public/images/selected1.jpg"></a></li>
-    		<li><a><img src="../Public/images/selected2.jpg"></a></li>
-    		<li><a><img src="../Public/images/select3.jpg"></a></li>
-    	</ul>    		
-    </div>
+    <script>
+      window.onload=function(){
+        var ojudge = document.getElementById('judgeMethod');
+        var txt = ojudge.childNodes[0].nodeValue;
+        var preEve = document.getElementsByClassName('preventEvent');
+
+        preEve[0].onclick=function (){
+            if (txt==="登录")
+            {
+                preEve[0].href = "#myModal";
+            }
+            else
+            {
+                preEve[0].href = "<?php echo U("Order/index");?>";          
+            }
+        }    
+      }
+    </script>
+
     <div class="clear"></div>
 
     <!--main content-->
@@ -179,48 +197,11 @@
     		</span>
     	</div>
     	<div class="order">
-    		<div class="order-detail">订单详情</div>
+    		<div class="order-detail">已将此商品加入购物车</div>
     		<div class="tab-pane" id="other">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>订单编号</th>
-                <th>姓名</th>
-                <th>电话</th>
-                <th>衣服信息</th>
-                <th>尺寸</th>
-                <th>颜色</th>
-                <th>租赁时间</th>
-                <th>价格</th>
-              </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>201410101</td>
-            <td>张兆鑫</td>
-            <td>18380421239</td>
-            <td>花纹领带正装</td>
-            <td>170</td>
-            <td>黑色</td>
-            <td>2014-3-14到2014-3-17</td>
-            <td>30/天</td>
-          </tr>
-        </tbody>
-    </table>
- </div>
-			<div class="order-send1">
-				我们的订单会以短信形式发送到您的手机上，请输入您的手机号：
-			</div>
-			<div class="order-send2">
-				<input type="text" name="phone-number" class="order-send2-detail0" />
-				<input type="button" value="验证" class="order-send2-detail1">
-			</div>
-			<div class="order-send3">
-				输入手机验证码：
-				<input type="text" class="order-send3-detail">
-			</div>
+            </div>
 			<div class="order-submit">
-				<div class="submit"><a href="success-message.html">确认完成订单</a></div>
+				<div class="submit"><a href="success-message.html">进入购物车</a></div>
 			</div>
     	</div>
     </div>
