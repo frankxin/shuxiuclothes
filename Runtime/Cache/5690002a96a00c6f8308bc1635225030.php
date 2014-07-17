@@ -235,7 +235,7 @@
     <div style="position:relative;">
         <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div id="showbox">
                     <div id="showbox-inner">
-                    <a href="<?php echo U("Order/detail",array("id"=>$vo['id']));?>"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
+                    <a href="<?php echo U("Order/detail",array("id"=>$vo['id']));?>" target="_blank"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
                     <div class="details">
                      <p><?php echo ($vo["description"]); ?></p>
                         <div id="price">

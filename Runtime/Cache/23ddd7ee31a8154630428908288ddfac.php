@@ -7,7 +7,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../Public/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../Public/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../Public/css/page1.2.css">
+    <link rel="stylesheet" type="text/css" href="../Public/css/detail.css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -424,8 +424,7 @@ function HS_setDate(inputObj){
           结束时间：<input type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)">
         </div>
         <div class="item-goto">
-          <span class="item-goto-shoppingcar"><a href="page1.html">返回</a></span>
-          <span class="item-goto-shoppingcar item-distance"><a href="submit.html">我选好了，进入下一步</a></span>
+          <span class="item-goto-shoppingcar item-distance"><a href="submit.html">加入购物车</a></span>
           <div class="clear"></div>
         </div>
       </div>
@@ -433,7 +432,7 @@ function HS_setDate(inputObj){
     <!-- 图片模态化-->
 
 <div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <img src="../Public/images/1.jpg" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
+        <img src="__PUBLIC__/upload<?php echo ($detail["image"][0]); ?>" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
       <!--<div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
@@ -441,7 +440,7 @@ function HS_setDate(inputObj){
 </div><!-- /.modal-content -->
 
 <div class="modal fade" id="myPhoto1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <img src="../Public/images/2.jpg" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
+        <img src="__PUBLIC__/upload<?php echo ($detail["image"][1]); ?>" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
       <!--<div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
@@ -459,10 +458,10 @@ function HS_setDate(inputObj){
   	var link=document.getElementById("changeHref")
 
   	obtn1.onclick=function(){
-  		bigImg.src="../Public/images/1.jpg"
+  		bigImg.src="__PUBLIC__/upload<?php echo ($detail["image"][0]); ?>"
   	}
   	obtn2.onclick=function(){
-  		bigImg.src="../Public/images/2.jpg"
+  		bigImg.src="__PUBLIC__/upload<?php echo ($detail["image"][1]); ?>"
   		link.href="#myPhoto1"
   	}
 </script>
