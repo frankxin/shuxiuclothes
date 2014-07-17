@@ -250,7 +250,7 @@ function HS_setDate(inputObj){
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">颜色:</span>
           <volist name="detail['color']" id="vo">
-              <span class="item-size-detail2">{$detail['color'][$key]}</span>
+              <span class="item-size-detail2 change-color">{$detail['color'][$key]}</span>
           </volist>
           
           <div class="clear"></div>
@@ -258,7 +258,7 @@ function HS_setDate(inputObj){
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">型号:</span>
           <volist name="detail['size']" id="vo">
-              <span class="item-size-detail2" ">{$detail['size'][$key]}</span>
+              <span class="item-size-detail2 change-color">{$detail['size'][$key]}</span>
           </volist>
           <div class="clear"></div>
         </div>
@@ -300,6 +300,23 @@ function HS_setDate(inputObj){
   		bigImg.src="__PUBLIC__/upload{$detail['image'][1]}"
       link.setAttribute("href","#myPhoto1");
   	}
+
+    <!--选择按钮反色-->
+
+    var btnColorchange = $(".change-color");
+    for (var i = 0; i < btnColorchange.length; i++) {
+      btnColorchange.eq(i).click(function(){
+        if (btnColorchange.css("background-color") == "rgb(255, 255, 255)") {
+          btnColorchange.css("background-color","rgb(61, 118, 219)");
+          btnColorchange.css("color","rgb(255, 255, 255)");
+        }else{
+          btnColorchange.css("background-color","rgb(255, 255, 255)");
+          btnColorchange.css("color","rgb(61, 118, 219)");
+        }
+    })  
+    };
+    
 </script>
+
   </body>
 </html>
