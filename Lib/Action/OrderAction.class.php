@@ -40,6 +40,14 @@
 		}
 		public function Bucket()
 		{
+			$cart = D("Order");
+			if($_SESSION['user']['uid']){
+				$cartReturn = $cart->getCartByUid($_SESSION['user']['uid']);
+			}
+			else{
+				//login
+			}
+			$this->assign('cartReturn',$cartReturn);
 			$this->display();
 		}
 	}
