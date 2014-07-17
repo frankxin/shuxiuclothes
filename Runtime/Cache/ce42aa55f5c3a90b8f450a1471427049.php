@@ -18,7 +18,7 @@
 </head>
 <body>
 <div>
-    <input id="title" style="width:200px; height:20px;border-radius:8px; margin-bottom:10px;" type="text" class="form-control" placeholder="文章标题">
+    <input id="title" style="width:200px; height:20px;margin-bottom:10px;" type="text" class="form-control" placeholder="文章标题">
 </div>
 <div>
     <select class="form-control" id="cat">

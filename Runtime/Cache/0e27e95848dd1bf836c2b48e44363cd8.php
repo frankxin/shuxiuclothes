@@ -1,11 +1,11 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-     <title></title>
-     <meta charset="utf-8"/>
-     <link rel="stylesheet" href="../Public/css/bootstrap.css">
-     <link rel="stylesheet" type="text/css" href="../Public/css/item-up.css">
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <title></title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../Public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../Public/css/item-up.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../Public/js/bootstrap.min.js"></script>
@@ -81,6 +81,22 @@
  		</div>
  		<?php
  if($edit) echo "<h4 style='color:red'>请重新编辑以下信息，或点击返回键取消编辑</h4>"; ?>
+        <div class="btn-group locate" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="gender" id="option1" value="0" checked>男性
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="gender" id="option2" value="1"> 女性
+          </label>
+        </div>
+        <div class="btn-group locate" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="type" id="option1" value="0" checked> 正装
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="type" id="option2" value="1"> 配件
+          </label>
+        </div>
             男性：
             <input type="radio" checked="checked" name="gender" value="0" />
             女性：
@@ -173,7 +189,6 @@
                 <input type="button" class="ibutton" onclick="location.href='<?php echo U("Admin/positive_manage");?>'" value="返回"></input>
             <?php } ?>
         </div>
-
 	</div>
     </form>
 </div>
