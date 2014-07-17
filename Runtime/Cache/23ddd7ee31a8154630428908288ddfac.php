@@ -418,7 +418,7 @@ function HS_setDate(inputObj){
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">型号:</span>
-          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2" value = "<?php echo ($detail['size'][$key]); ?>"><?php echo ($detail['size'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
+          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2" "><?php echo ($detail['size'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
           <div class="clear"></div>
         </div>
         <div class="item-time">

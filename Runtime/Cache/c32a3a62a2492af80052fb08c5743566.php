@@ -206,10 +206,18 @@
                         <th class="th1">
                             <span>普通商品</span>
                         </th>
-                        <th class="th2"></th>
-                        <th class="th3"></th>
-                        <th class="th4"></th>
-                        <th class="th5"></th>
+                        <th class="th2">
+                            <span>普通商品</span>
+                        </th>
+                        <th class="th3">
+                            <span>普通商品</span>
+                        </th>
+                        <th class="th4">
+
+                        </th>
+                        <th class="th5">
+
+                        </th>
                     </tr>
                 </tbody>
             </table>
