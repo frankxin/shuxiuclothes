@@ -267,7 +267,7 @@ function HS_setDate(inputObj){
           结束时间：<input type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)">
         </div>
         <div class="item-goto">
-          <span class="item-goto-shoppingcar item-distance"><a href="submit.html">加入购物车</a></span>
+          <span class="item-goto-shoppingcar item-distance"><a href="{:U("Order/submit",array("id"=>$detail['id']))}">加入购物车</a></span>
           <div class="clear"></div>
         </div>
       </div>

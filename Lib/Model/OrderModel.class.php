@@ -30,4 +30,19 @@
 			//echo $this->getLastSql();
 			return array("show"=>$show,"list"=>$list);
 		}
+
+		public function inputToCart($caID,$uid,$casize,$cacolor)
+		{
+			$cart = M("cart");
+			$data['uid'] = $uid;
+			$data['caID'] = $caID;
+			$data['casize'] = $casize;
+			$data['cacolor'] = $cacolor;
+			$cart->add($data);
+		}
+
+		public function getCartByUid($uid)
+		{
+			return M("cart")->where(array("uid"=>$uid))->select();
+		}
 	}

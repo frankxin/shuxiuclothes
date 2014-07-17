@@ -31,6 +31,14 @@
 
 		public function submit()
 		{
+			$ca = D("CA");
+			$detail = $ca->getCAdetail($_GET['id']);
+			var_dump($detail);
+			$this->assign('detail',$detail);
+			$this->display();
+		}
+		public function Bucket()
+		{
 			$this->display();
 		}
 	}
