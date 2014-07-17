@@ -20,6 +20,7 @@
 			$ca = D("CA");
 			$detail = $ca->getCAdetail($_GET['id']);
 			var_dump($detail);
+			//$_SESSION['user']
 			$this->assign('detail',$detail);
 			$this->display();
 		}

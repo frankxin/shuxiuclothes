@@ -232,9 +232,8 @@ function HS_setDate(inputObj){
             </a>
           </div>
           <div class="mask">
-            <volist name="detail['image']" id="vo">
-              <img src="__PUBLIC__/upload{$detail['image'][$key]}" width="40" height="22" id="imgBtn{$key}" />
-            </volist>
+              <img src="__PUBLIC__/upload{$detail['image'][0]}" width="40" height="40" id="imgBtn1" />
+              <img src="__PUBLIC__/upload{$detail['image'][1]}" width="40" height="40" id="imgBtn2" />
           <!--   <img src="../Public/images/1.jpg" width="40" height="22" id="imgBtn1" />
         
             <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn2" /> -->
@@ -259,7 +258,7 @@ function HS_setDate(inputObj){
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">型号:</span>
           <volist name="detail['size']" id="vo">
-              <span class="item-size-detail2">{$detail['size'][$key]}</span>
+              <span class="item-size-detail2" ">{$detail['size'][$key]}</span>
           </volist>
           <div class="clear"></div>
         </div>
@@ -276,11 +275,11 @@ function HS_setDate(inputObj){
     <!-- 图片模态化-->
 
     <div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <img src="../Public/images/1.jpg" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
+            <img src="__PUBLIC__/upload{$detail['image'][0]}" width="800px" height="800px" style="position:relative;top:100px;left:20%;">
     </div>
 
     <div class="modal fade" id="myPhoto1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <img src="../Public/images/2.jpg" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
+            <img src="__PUBLIC__/upload{$detail['image'][1]}" width="800px" height="800px" style="position:relative;top:100px;left:20%;">
     </div>
 	
 

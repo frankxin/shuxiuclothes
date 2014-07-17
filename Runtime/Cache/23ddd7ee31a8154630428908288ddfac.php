@@ -395,7 +395,8 @@ function HS_setDate(inputObj){
             </a>
           </div>
           <div class="mask">
-            <?php if(is_array($detail['image'])): $i = 0; $__LIST__ = $detail['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><img src="__PUBLIC__/upload<?php echo ($detail['image'][$key]); ?>" width="40" height="22" id="imgBtn<?php echo ($key); ?>" /><?php endforeach; endif; else: echo "" ;endif; ?>
+              <img src="__PUBLIC__/upload<?php echo ($detail['image'][0]); ?>" width="40" height="40" id="imgBtn1" />
+              <img src="__PUBLIC__/upload<?php echo ($detail['image'][1]); ?>" width="40" height="40" id="imgBtn2" />
           <!--   <img src="../Public/images/1.jpg" width="40" height="22" id="imgBtn1" />
         
             <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn2" /> -->
@@ -417,7 +418,7 @@ function HS_setDate(inputObj){
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">型号:</span>
-          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2"><?php echo ($detail['size'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
+          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2" value = "<?php echo ($detail['size'][$key]); ?>"><?php echo ($detail['size'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
           <div class="clear"></div>
         </div>
         <div class="item-time">
@@ -433,11 +434,11 @@ function HS_setDate(inputObj){
     <!-- 图片模态化-->
 
     <div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <img src="../Public/images/1.jpg" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
+            <img src="__PUBLIC__/upload<?php echo ($detail['image'][0]); ?>" width="800px" height="800px" style="position:relative;top:100px;left:20%;">
     </div>
 
     <div class="modal fade" id="myPhoto1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <img src="../Public/images/2.jpg" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
+            <img src="__PUBLIC__/upload<?php echo ($detail['image'][1]); ?>" width="800px" height="800px" style="position:relative;top:100px;left:20%;">
     </div>
 	
 
