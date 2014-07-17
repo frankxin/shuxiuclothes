@@ -249,17 +249,20 @@ function HS_setDate(inputObj){
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">颜色:</span>
-          <volist name="detail['color']" id="vo">
-              <span class="item-size-detail2 change-color">{$detail['color'][$key]}</span>
-          </volist>
-          
+          <div>
+            <volist name="detail['color']" id="vo">
+                <span class="item-size-detail2 changecolor1">{$detail['color'][$key]}</span>
+            </volist>
+          </div>
           <div class="clear"></div>
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">型号:</span>
-          <volist name="detail['size']" id="vo">
-              <span class="item-size-detail2 change-color">{$detail['size'][$key]}</span>
-          </volist>
+          <div>
+            <volist name="detail['size']" id="vo">
+                <span class="item-size-detail2 changecolor2">{$detail['size'][$key]}</span>
+            </volist>
+          </div>
           <div class="clear"></div>
         </div>
         <div class="item-time">
@@ -302,19 +305,61 @@ function HS_setDate(inputObj){
   	}
 
     <!--选择按钮反色-->
+    $(".changecolor1").click(function(){
+       $(this).siblings().css("background-color","rgb(255, 255, 255)");
+       $(this).siblings().css("color","rgb(61, 118, 219)");
+       $(this).css("background-color","rgb(61, 118, 219)");
+       $(this).css("color","rgb(255, 255, 255)")
+    })
+    $(".changecolor2").click(function(){
+      $(this).siblings().css("background-color","rgb(255, 255, 255)");
+       $(this).siblings().css("color","rgb(61, 118, 219)");
+       $(this).css("background-color","rgb(61, 118, 219)");
+       $(this).css("color","rgb(255, 255, 255)")
+    })
+    
 
-    var btnColorchange = $(".change-color");
-    for (var i = 0; i < btnColorchange.length; i++) {
-      btnColorchange.eq(i).click(function(){
-        if (btnColorchange.css("background-color") == "rgb(255, 255, 255)") {
-          btnColorchange.css("background-color","rgb(61, 118, 219)");
-          btnColorchange.css("color","rgb(255, 255, 255)");
-        }else{
-          btnColorchange.css("background-color","rgb(255, 255, 255)");
-          btnColorchange.css("color","rgb(61, 118, 219)");
-        }
-    })  
-    };
+    // changeColor("changecolor1");
+    // changeColor("changecolor2");
+
+    // function changeColor(id){
+    //   var id = "#" + id;
+    //   var btnColorchange = $(id);
+    //   function attachChange(index){
+    //       if(btnColorchange.eq(index).css("background-color") == "rgb(255, 255, 255)"){
+    //         btnColorchange.css("background-color","rgb(61, 118, 219)");
+    //         btnColorchange.css("color","rgb(255, 255, 255)");
+    //         for (var j = 0; j < btnColorchange.length; j++) {
+    //           if(btnColorchange.eq(j).css("background-color") == "rgb(255, 255, 255)"){
+    //               btnColorchange.eq(j).unbind()      
+    //             }
+    //         };
+    //       }else{
+    //         btnColorchange.css("background-color","rgb(255, 255, 255)");
+    //         btnColorchange.css("color","rgb(61, 118, 219)");
+    //         for (var j = 0; j < btnColorchange.length; j++) {
+    //           btnColorchange.eq(j).bind('click',attachChange(j));
+    //         };
+    //       }
+    //     }
+    //   for (var i = 0; i < btnColorchange.length; i++) {
+    //     btnColorchange.eq(i).bind('click',attachChange(i))
+    //   };
+    // }
+
+
+    // var btnColorchange = $(".change-color");
+    // for (var i = 0; i < btnColorchange.length; i++) {
+    //   btnColorchange.eq(i).click(function(){
+    //     if (btnColorchange.css("background-color") == "rgb(255, 255, 255)") {
+    //       btnColorchange.css("background-color","rgb(61, 118, 219)");
+    //       btnColorchange.css("color","rgb(255, 255, 255)");
+    //     }else{
+    //       btnColorchange.css("background-color","rgb(255, 255, 255)");
+    //       btnColorchange.css("color","rgb(61, 118, 219)");
+    //     }
+    // })  
+    // };
     
 </script>
 
