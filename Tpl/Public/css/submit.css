@@ -47,11 +47,11 @@
 .order-detail{
 	font-weight: bold;
 	font-size: 20px;
-	color: #fff;
-	width: 112px;
+	color: #3B9159;
 	height: 28px;
 	margin: auto;
 	margin-top: 20px;
+	text-align: center;
 }
 .order-thing{
 	margin: auto;
@@ -91,9 +91,8 @@
 }
 .order-submit{
 	float:right;
-	position: relative;
-	top: 70px;
-	left: 400px;
+	margin-top:145px;
+	padding-right: 33px;
 }
 .submit{
 	background-color: #fff;

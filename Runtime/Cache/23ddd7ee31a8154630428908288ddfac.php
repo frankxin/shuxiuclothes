@@ -389,15 +389,16 @@ function HS_setDate(inputObj){
       <!-- indexCon start -->
       <div class="indexCon">
         <div class="flashBanner">
-          <a href="#myPhoto" data-toggle="modal" id="changeHref">
-          <img class="bigImg" width="300" height="200" src= "__PUBLIC__/upload<?php echo ($detail["image"][0]); ?>" id="bigImg" />
-          </a>
+          <div class="photo">
+            <a href="#myPhoto" data-toggle="modal" id="changeHref">
+            <img class="bigImg" width="300" height="300" src= "__PUBLIC__/upload<?php echo ($detail['image'][0]); ?>" id="bigImg" />
+            </a>
+          </div>
           <div class="mask">
             <?php if(is_array($detail['image'])): $i = 0; $__LIST__ = $detail['image'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><img src="__PUBLIC__/upload<?php echo ($detail['image'][$key]); ?>" width="40" height="22" id="imgBtn<?php echo ($key); ?>" /><?php endforeach; endif; else: echo "" ;endif; ?>
-            <!-- <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn1" />
+          <!--   <img src="../Public/images/1.jpg" width="40" height="22" id="imgBtn1" />
         
             <img src="../Public/images/2.jpg" width="40" height="22" id="imgBtn2" /> -->
-        
           </div>
         </div>
       </div>
@@ -431,21 +432,13 @@ function HS_setDate(inputObj){
     </div>
     <!-- 图片模态化-->
 
-<div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <img src="__PUBLIC__/upload<?php echo ($detail["image"][0]); ?>" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>-->
-</div><!-- /.modal-content -->
+    <div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <img src="../Public/images/1.jpg" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
+    </div>
 
-<div class="modal fade" id="myPhoto1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <img src="__PUBLIC__/upload<?php echo ($detail["image"][1]); ?>" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>-->
-</div><!-- /.modal-content -->
+    <div class="modal fade" id="myPhoto1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <img src="../Public/images/2.jpg" width="800px" height="500px" style="position:relative;top:100px;left:20%;">
+    </div>
 	
 
 
@@ -455,14 +448,15 @@ function HS_setDate(inputObj){
   	var obtn1=document.getElementById("imgBtn1");
   	var obtn2=document.getElementById("imgBtn2");
   	var obigImg=document.getElementById("bigImg");
-  	var link=document.getElementById("changeHref")
+  	var link=document.getElementById("changeHref");
 
   	obtn1.onclick=function(){
-  		bigImg.src="__PUBLIC__/upload<?php echo ($detail["image"][0]); ?>"
+  		bigImg.src="__PUBLIC__/upload<?php echo ($detail['image'][0]); ?>"
+      link.setAttribute("href","#myPhoto")
   	}
   	obtn2.onclick=function(){
-  		bigImg.src="__PUBLIC__/upload<?php echo ($detail["image"][1]); ?>"
-  		link.href="#myPhoto1"
+  		bigImg.src="__PUBLIC__/upload<?php echo ($detail['image'][1]); ?>"
+      link.setAttribute("href","#myPhoto1");
   	}
 </script>
   </body>

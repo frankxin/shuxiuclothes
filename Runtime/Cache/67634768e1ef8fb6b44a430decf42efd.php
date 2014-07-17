@@ -23,7 +23,7 @@
     <![endif]-->
 </head>
 <body>
-	   <!-- <div id="zzx-header-top">
+	<div id="zzx-header-top">
       <div class="zzx-header-top-logo">
         <img src="../Public/images/logo.png">
         <img src="../Public/images/head.png">
@@ -186,14 +186,7 @@
         }    
       }
     </script>
- -->
-    <div id="select-order">
-    	<ul>
-    		<li><a><img src="../Public/images/selected1.jpg"></a></li>
-    		<li><a><img src="../Public/images/selected2.jpg"></a></li>
-    		<li><a><img src="../Public/images/select3.jpg"></a></li>
-    	</ul>    		
-    </div>
+
     <div class="clear"></div>
 
     <!--main content-->
@@ -204,48 +197,11 @@
     		</span>
     	</div>
     	<div class="order">
-    		<div class="order-detail">订单详情</div>
+    		<div class="order-detail">已将此商品加入购物车</div>
     		<div class="tab-pane" id="other">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>订单编号</th>
-                <th>姓名</th>
-                <th>电话</th>
-                <th>衣服信息</th>
-                <th>尺寸</th>
-                <th>颜色</th>
-                <th>租赁时间</th>
-                <th>价格</th>
-              </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>201410101</td>
-            <td>张兆鑫</td>
-            <td>18380421239</td>
-            <td>花纹领带正装</td>
-            <td>170</td>
-            <td>黑色</td>
-            <td>2014-3-14到2014-3-17</td>
-            <td>30/天</td>
-          </tr>
-        </tbody>
-    </table>
- </div>
-			<div class="order-send1">
-				我们的订单会以短信形式发送到您的手机上，请输入您的手机号：
-			</div>
-			<div class="order-send2">
-				<input type="text" name="phone-number" class="order-send2-detail0" />
-				<input type="button" value="验证" class="order-send2-detail1">
-			</div>
-			<div class="order-send3">
-				输入手机验证码：
-				<input type="text" class="order-send3-detail">
-			</div>
+            </div>
 			<div class="order-submit">
-				<div class="submit"><a href="success-message.html">确认完成订单</a></div>
+				<div class="submit"><a href="success-message.html">进入购物车</a></div>
 			</div>
     	</div>
     </div>
