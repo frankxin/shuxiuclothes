@@ -200,15 +200,15 @@
     <div style="border-bottom: 3px dashed white;border-radius: 4px;padding-left: 145px;">
         <div class="btn-group btn-pos" data-toggle="buttons">
             <label class="btn btn-primary active ">
-                <a href="<?php echo U('Order/index',array('gender'=>0));?>"><span class="choice-deco">男</span></a>
+                <input type="radio" name="options" id="option1" checked> 男
             </label>
             <label class="btn btn-primary">
-                <a href="<?php echo U('Order/index',array('gender'=>1));?>" ><span class="choice-deco">女</span></a>
+                <input type="radio" name="options" id="option2"> 女
             </label>
         </div>
         <div class="btn-group btn-pos" data-toggle="buttons">
             <label class="btn btn-primary active close-peijian">
-                <input type="radio" name="options" id="option1"  > 正装
+                <input type="radio" name="options" id="option1"  checked> 正装
             </label>
             <label class="btn btn-primary findmore">
                 <input type="radio" name="options" id="option2" > 配件
@@ -216,7 +216,7 @@
         </div>
         <div class="btn-group btn-pos display-peijian" data-toggle="buttons">
             <label class="btn btn-primary active ">
-                <input type="radio" name="options" id="option1" > 鞋子
+                <input type="radio" name="options" id="option1" checked> 鞋子
             </label>
             <label class="btn btn-primary">
                 <input type="radio" name="options" id="option2"> 领带
