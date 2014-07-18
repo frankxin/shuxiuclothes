@@ -313,9 +313,9 @@ function HS_setDate(inputObj){
     })
     $(".changecolor2").click(function(){
       $(this).siblings().css("background-color","rgb(255, 255, 255)");
-       $(this).siblings().css("color","rgb(61, 118, 219)");
-       $(this).css("background-color","rgb(61, 118, 219)");
-       $(this).css("color","rgb(255, 255, 255)")
+      $(this).siblings().css("color","rgb(61, 118, 219)");
+      $(this).css("background-color","rgb(61, 118, 219)");
+      $(this).css("color","rgb(255, 255, 255)")
     })
     
 
@@ -346,21 +346,8 @@ function HS_setDate(inputObj){
     //     btnColorchange.eq(i).bind('click',attachChange(i))
     //   };
     // }
-
-
-    // var btnColorchange = $(".change-color");
-    // for (var i = 0; i < btnColorchange.length; i++) {
-    //   btnColorchange.eq(i).click(function(){
-    //     if (btnColorchange.css("background-color") == "rgb(255, 255, 255)") {
-    //       btnColorchange.css("background-color","rgb(61, 118, 219)");
-    //       btnColorchange.css("color","rgb(255, 255, 255)");
-    //     }else{
-    //       btnColorchange.css("background-color","rgb(255, 255, 255)");
-    //       btnColorchange.css("color","rgb(61, 118, 219)");
-    //     }
-    // })  
-    // };
-    
+    var id = $_GET['id'];
+    alert(id);
 </script>
 
   </body>

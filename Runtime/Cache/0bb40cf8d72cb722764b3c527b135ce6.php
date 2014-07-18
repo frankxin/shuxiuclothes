@@ -208,7 +208,7 @@
         </div>
         <div class="btn-group btn-pos" data-toggle="buttons">
             <label class="btn btn-primary active close-peijian">
-                <input type="radio" name="options" id="option1"  checked> 正装
+                    <input type="radio" name="options" id="option1" src="detail.html" checked> 正装
             </label>
             <label class="btn btn-primary findmore">
                 <input type="radio" name="options" id="option2" > 配件

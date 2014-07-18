@@ -14,7 +14,7 @@
 }
 .main-content{
 	width: 1000px;
-	height:400px;
+	height:346px;
 	border-radius: 8px;
 	background:url('../images/bg2.png');
 	margin: auto;
@@ -25,7 +25,7 @@
 	float: left;
 	background-color: rgba(0,0,0,0.5);
 	width: 350px;
-	height: 400px;
+	height: 346px;
 }
 .ad-content{
 	font-weight: bold;
@@ -42,7 +42,7 @@
 	background-color: rgba(0,0,0,0.2);
 	float: left;
 	width: 650px;
-	height: 400px;
+	height: 346px;
 }
 .order-detail{
 	font-weight: bold;
@@ -108,4 +108,20 @@
 .order-submit .submit:hover{
 	cursor: pointer;
 	color:#ff8706;
+}
+.image{
+	width:100px;
+	float:left;
+}
+.detail{
+	float:left;
+	margin-left: 15px;	
+}
+.detail span{
+	color:#fff;
+	font-weight: bold;
+}
+.tab-pane{
+	padding-left: 77px;
+	margin-top: 45px;
 }
