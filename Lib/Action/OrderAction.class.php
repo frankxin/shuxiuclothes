@@ -3,9 +3,17 @@
 	{
 		public function index()
 		{
-			$gender = empty($_REQUEST['gender'])?0:1;
+			if($_GET['gender']){
+				$gender = $_GET['gender'];
+			}
+			if($_GET['type']){
+				$type = $_GET['type'];
+			}
+			if($_GET['accessory_type']){
+				$accessory_type = $_GET['accessory_type'];
+			}
 			$ca = D("CA");
-			$data = $ca->getPaginateData(0,array('gender'=>$gender),15);
+			$data = $ca->getPaginateData($type,$accessory_type,$gender,15);
 			foreach ($data["list"] as $key=>$value) {
 				$data["list"][$key]["imgs"] = $ca->getImgs($value["id"]);
 				$data["list"][$key]["imgs"] = $data["list"][$key]["imgs"][0];

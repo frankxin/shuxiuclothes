@@ -47,12 +47,15 @@
 				return true;
 		}
 
-		public function getPaginateData($type,$maparr,$num=30)
+		public function getPaginateData($type='',$accessory_type='',$gender='',$num=30)
 		{
 			import('ORG.Util.Page');
-			$map = array('status'=>1,'type'=>$type);
-			$map = array_merge($map,$maparr);
+			$map['status'] = 1;
+			if(!empty($type)) $map['type'] = $type;
+			if(!empty($accessory_type)) $map['accessory_type'] = $accessory_type;
+			if(!empty($gender)) $map['gender'] = $gender;
 			$count = $this->where($map)->count();
+			//var_dump($map,$count);
 			$Page  = new Page($count,$num);
 			$Page->setConfig("theme","<li>%upPage%</li>  <li>%linkPage%</li> <li>%downPage%</li>");
 			$show  = $Page->show();

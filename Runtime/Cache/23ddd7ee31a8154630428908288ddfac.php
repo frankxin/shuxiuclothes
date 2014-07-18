@@ -412,13 +412,16 @@ function HS_setDate(inputObj){
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">颜色:</span>
-          <?php if(is_array($detail['color'])): $i = 0; $__LIST__ = $detail['color'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2"><?php echo ($detail['color'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
-          
+          <div>
+            <?php if(is_array($detail['color'])): $i = 0; $__LIST__ = $detail['color'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2 changecolor1"><?php echo ($detail['color'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
+          </div>
           <div class="clear"></div>
         </div>
         <div class="item-size" id="item-size">
           <span class="item-size-detail1">型号:</span>
-          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2" "><?php echo ($detail['size'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
+          <div>
+            <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2 changecolor2"><?php echo ($detail['size'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
+          </div>
           <div class="clear"></div>
         </div>
         <div class="item-time">
@@ -459,6 +462,65 @@ function HS_setDate(inputObj){
   		bigImg.src="__PUBLIC__/upload<?php echo ($detail['image'][1]); ?>"
       link.setAttribute("href","#myPhoto1");
   	}
+
+    <!--选择按钮反色-->
+    $(".changecolor1").click(function(){
+       $(this).siblings().css("background-color","rgb(255, 255, 255)");
+       $(this).siblings().css("color","rgb(61, 118, 219)");
+       $(this).css("background-color","rgb(61, 118, 219)");
+       $(this).css("color","rgb(255, 255, 255)")
+    })
+    $(".changecolor2").click(function(){
+      $(this).siblings().css("background-color","rgb(255, 255, 255)");
+       $(this).siblings().css("color","rgb(61, 118, 219)");
+       $(this).css("background-color","rgb(61, 118, 219)");
+       $(this).css("color","rgb(255, 255, 255)")
+    })
+    
+
+    // changeColor("changecolor1");
+    // changeColor("changecolor2");
+
+    // function changeColor(id){
+    //   var id = "#" + id;
+    //   var btnColorchange = $(id);
+    //   function attachChange(index){
+    //       if(btnColorchange.eq(index).css("background-color") == "rgb(255, 255, 255)"){
+    //         btnColorchange.css("background-color","rgb(61, 118, 219)");
+    //         btnColorchange.css("color","rgb(255, 255, 255)");
+    //         for (var j = 0; j < btnColorchange.length; j++) {
+    //           if(btnColorchange.eq(j).css("background-color") == "rgb(255, 255, 255)"){
+    //               btnColorchange.eq(j).unbind()      
+    //             }
+    //         };
+    //       }else{
+    //         btnColorchange.css("background-color","rgb(255, 255, 255)");
+    //         btnColorchange.css("color","rgb(61, 118, 219)");
+    //         for (var j = 0; j < btnColorchange.length; j++) {
+    //           btnColorchange.eq(j).bind('click',attachChange(j));
+    //         };
+    //       }
+    //     }
+    //   for (var i = 0; i < btnColorchange.length; i++) {
+    //     btnColorchange.eq(i).bind('click',attachChange(i))
+    //   };
+    // }
+
+
+    // var btnColorchange = $(".change-color");
+    // for (var i = 0; i < btnColorchange.length; i++) {
+    //   btnColorchange.eq(i).click(function(){
+    //     if (btnColorchange.css("background-color") == "rgb(255, 255, 255)") {
+    //       btnColorchange.css("background-color","rgb(61, 118, 219)");
+    //       btnColorchange.css("color","rgb(255, 255, 255)");
+    //     }else{
+    //       btnColorchange.css("background-color","rgb(255, 255, 255)");
+    //       btnColorchange.css("color","rgb(61, 118, 219)");
+    //     }
+    // })  
+    // };
+    
 </script>
+
   </body>
 </html>
