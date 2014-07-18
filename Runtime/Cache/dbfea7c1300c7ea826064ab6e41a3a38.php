@@ -505,8 +505,38 @@ function HS_setDate(inputObj){
     //     btnColorchange.eq(i).bind('click',attachChange(i))
     //   };
     // }
-    var id = $_GET['id'];
-    alert(id);
+    function getInfo(){
+
+      var getColor = $(".changecolor1");
+      var getSize = $(".changecolor2");
+      var getHours = $(".item-time input");
+      var size = [];
+      var color = [];
+      var hour = [];
+
+      for (var i = 0; i < getColor.length; i++) {
+        if (getColor.eq(i).css("color") == 'rgb(255, 255, 255)') {
+          var txt = getColor.eq(i).text();
+          color.push(txt);
+        };
+      };
+
+      for (var i = 0; i < getSize.length; i++) {
+        if(getSize.eq(i).css("color") == 'rgb(255, 255, 255)'){
+          var text = getSize.eq(i).text();
+          size.push(text);
+        }
+      };
+
+      for (var i = 0; i < getHours.length; i++) {
+        var itext = getHours.eq(i).val();
+        hour.push(itext);
+      };
+      console.log(size);
+      console.log(color);
+      console.log(hour);
+    }
+    
 </script>
 
   </body>
