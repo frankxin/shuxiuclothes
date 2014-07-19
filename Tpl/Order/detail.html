@@ -241,7 +241,42 @@ function HS_setDate(inputObj){
         </div>
       </div>
       <!-- indexCon end -->
-      
+    <form action method="post">
+      <div class="intro">
+        <span>型号：</span>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="size" id="option1" value="175" checked> 175
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option2" value="180"> 180
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="185"> 185
+          </label>
+        </div>
+        <span>颜色：</span>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="color" id="option1" value="蓝色" checked> 蓝色
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option2" value="黑色"> 黑色
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option3" value="紫色"> 紫色
+          </label>
+        </div>
+        <div class="item-time">
+          开始时间：<input type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)">
+          结束时间：<input type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)">
+        </div>
+        <div class="item-goto">
+          <input type="submit">
+          <div class="clear"></div>
+        </div>
+      </div>
+    </form>
       <div class="intro">
         <div class="item-price">
           <span class="item-price-detail1">租赁价格：</span><span class="item-price-detail2">{$detail['price']}</span>
