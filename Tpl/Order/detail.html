@@ -365,7 +365,7 @@ function HS_setDate(inputObj){
       for (var i = 0; i < getSize.length; i++) {
         if(getSize.eq(i).css("color") == 'rgb(255, 255, 255)'){
           var text = getSize.eq(i).text();
-          size.push(text);
+          size.push(text); 
         }
       };
 
@@ -376,7 +376,7 @@ function HS_setDate(inputObj){
       console.log(size);
       console.log(color);
       console.log(hour);
-      $.post("Order/submit" , {sizes : size,colors : color ,hours : hour});
+      $.post("{:U('Order/submit')}" , {sizes : size,colors : color ,hours : hour},function(data){alert(data);});
     }
     
     $(".item-goto-shoppingcar").click(function(){

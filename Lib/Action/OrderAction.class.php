@@ -42,20 +42,24 @@
 		{
 			$ca = D("CA");
 			$detail = $ca->getCAdetail($_GET['id']);
-			//var_dump($detail);
+			var_dump($_POST);
 			$this->assign('detail',$detail);
 			$this->display();
 		}
-		public function Bucket()
-		{
-			$cart = D("Order");
-			if($_SESSION['user']['uid']){
-				$cartReturn = $cart->getCartByUid($_SESSION['user']['uid']);
-			}
-			else{
-				//login
-			}
-			$this->assign('cartReturn',$cartReturn);
-			$this->display();
-		}
+		// public function Bucket()
+		// {
+		// 	var_dump("adfasdfasdf");
+		// 	$cart = D("Order");
+
+		// 	var_dump($_SESSION['user']['uid']);
+		// 	if($_SESSION['user']['uid']){
+		// 		$cartReturn = $cart->getCartByUid($_SESSION['user']['uid']);
+		// 		var_dump($_SESSION['user']['uid']);
+		// 	}
+		// 	else{
+		// 		//login
+		// 	}
+		// 	$this->assign('cartReturn',$cartReturn);
+		// 	$this->display();
+		// }
 	}

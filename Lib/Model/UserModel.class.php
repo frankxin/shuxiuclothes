@@ -109,4 +109,9 @@
 			$list = $this->where($map)->order($order)->limit($Page->firstRow.','.$Page->listRows)->select();
 			return array("show"=>$show,"list"=>$list);
 		}
+		
+		public function getCartByUid($uid)
+		{
+			return M("cart")->where(array("uid"=>$uid))->select();
+		}
 	}

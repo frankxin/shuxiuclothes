@@ -311,4 +311,18 @@
 			}
 			return $data;
 		}
+		public function Bucket()
+		{
+			$cart = D("User");
+
+			if($_SESSION['user']['uid']){
+				$cartReturn = $cart->getCartByUid($_SESSION['user']['uid']);
+				var_dump($cartReturn);
+			}
+			else{
+				//login
+			}
+			$this->assign('cartReturn',$cartReturn);
+			$this->display();
+		}
 	}
