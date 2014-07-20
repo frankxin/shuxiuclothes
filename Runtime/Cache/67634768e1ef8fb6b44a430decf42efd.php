@@ -203,11 +203,13 @@
                     <a href="#"><img src="../Public/images/1.jpg" width="100px" height="100px"></a>
                 </div>
                 <div class="detail">
-                    <span>描述：</span>
-                    <span>型号：</span>
-                    <span>颜色：</span>
-                    <span>租赁天数：</span>
-                    <span>总计价格：</span>
+                    <span>描述：<?php echo ($detail['description']); ?></span>
+                    <span>型号：<?php echo ($detail['size']); ?></span>
+                    <span>颜色：<?php echo ($detail['color']); ?></span>
+                    <span>开始时间：<?php echo ($detail['startTime']); ?></span>
+                    <span>结束时间：<?php echo ($detail['endTime']); ?></span>
+                    <span>租赁天数：<?php echo ($detail['countTime']); ?></span>
+                    <span>总计价格：<?php echo ($detail['countPrice']); ?></span>
                 </div>
             </div>
 			<div class="order-submit">

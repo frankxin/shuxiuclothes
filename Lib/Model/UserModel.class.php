@@ -112,6 +112,11 @@
 		
 		public function getCartByUid($uid)
 		{
-			return M("cart")->where(array("uid"=>$uid))->select();
+			$cart =  M("cart")->where(array("uid"=>$uid))->select();
+			$order =D("Order");
+			foreach ($cart as $key => $value) {
+				$return[$key] = $order->getSubmitDetial($value['caID'],$value['casize'],$value['cacolor'],$value['startTime'],$value['endTime']);
+			}
+			return $return;
 		}
 	}

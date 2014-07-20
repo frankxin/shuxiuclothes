@@ -245,23 +245,21 @@ function HS_setDate(inputObj){
       <div class="intro">
         <span>型号：</span>
         <div class="btn-group" data-toggle="buttons">
-          <volist name="list" id="vo">
+           
+          <volist name="detail['size']" id="vo">
             <label class="btn btn-primary active">
-              <input type="radio" name="size" id="option1" value="175" checked> 175
+              <input type="radio" name="size" id="option{$key}" value="{$detail['size'][$key]}" checked> {$detail['size'][$key]}
             </label>
           </volist>
+        <input type=hidden name="id" value={$detail['id']}>
         </div>
         <span>颜色：</span>
         <div class="btn-group" data-toggle="buttons">
+          <volist name="detail['color']" id="vo">
           <label class="btn btn-primary active">
-            <input type="radio" name="color" id="option1" value="蓝色" checked> 蓝色
+            <input type="radio" name="color" id="option{$key}" value="{$detail['color'][$key]}" checked> {$detail['color'][$key]}
           </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="color" id="option2" value="黑色"> 黑色
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="color" id="option3" value="紫色"> 紫色
-          </label>
+          </volist>
         </div>
         <div class="item-time">
           开始时间：<input name="startTime" type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)" class="it">

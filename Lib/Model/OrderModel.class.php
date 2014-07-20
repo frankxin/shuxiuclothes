@@ -31,18 +31,31 @@
 			return array("show"=>$show,"list"=>$list);
 		}
 
-		public function inputToCart($caID,$uid,$casize,$cacolor)
+		public function inputToCart($uid,$caID,$casize,$cacolor,$startTime,$endTime)
 		{
 			$cart = M("cart");
 			$data['uid'] = $uid;
 			$data['caID'] = $caID;
 			$data['casize'] = $casize;
 			$data['cacolor'] = $cacolor;
+			$data['startTime'] = strtotime($startTime);
+			$data['endTime'] = strtotime($endTime);
 			$cart->add($data);
 		}
 
-		public function getCartByUid($uid)
+
+		public function getSubmitDetial($id,$size,$color,$startTime,$endTime)
 		{
-			return M("cart")->where(array("uid"=>$uid))->select();
+			$ca = D("CA");
+			$caDetail = $ca->getCAdetail($id);
+			$detail['description'] =$caDetail['description'];
+			$detail['size'] = $size;
+			$detail['color'] = $color;
+			$detail['price'] = $caDetail['price'];
+			$detail['startTime'] = date('Y年m月d日', $startTime);
+			$detail['endTime'] = date('Y年m月d日', $endTime);
+			$detail['countTime'] = ($endTime - $startTime) / 86400;
+			$detail['countPrice'] = $detail['countTime'] * $caDetail['price'];
+			return $detail;
 		}
 	}

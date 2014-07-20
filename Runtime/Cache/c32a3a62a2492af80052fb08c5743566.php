@@ -200,20 +200,19 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="bucket-table bucket-goods">
+            <?php if(is_array($cartReturn)): $i = 0; $__LIST__ = $cartReturn;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><table class="bucket-table bucket-goods">
                 <tbody>
                     <tr class="bucket-goods-tr">
                         <th class="th1">
-                            <span>普通商品</span>
+                            <span><?php echo ($vo["description"]); ?></span>
                         </th>
-                        <th class="th2"></th>
-                        <th class="th3"></th>
-                        <th class="th4"></th>
+                        <th class="th2"><?php echo ($vo["price"]); ?></th>
+                        <th class="th3"><?php echo ($vo["countTime"]); ?></th>
+                        <th class="th4"><?php echo ($vo["countPrice"]); ?></th>
                         <th class="th5"></th>
                     </tr>
                 </tbody>
-            </table>
-
+            </table><?php endforeach; endif; else: echo "" ;endif; ?>
             <!-- 商品总价格栏开始 -->
 
             <div class="bucket-total">
@@ -223,10 +222,10 @@
                     <a href="javascript:;">批量删除</a>
                 </div>
                 <div class="right">
-                    <p class="price">商品总价（<span>￥250.00</span>）- 活动（<span>￥32.00</span>）= 商品金额总计（<span>￥218.00</span>）</p>
+                    <p class="price">商品总价（<span>￥<?php echo ($countPrice); ?></span>）- 活动（<span>￥32.00</span>）= 商品金额总计（<span>￥<?php echo ($countPrice); ?></span>）</p>
                     <p>
                         商品总价（免运费）
-                        <strong>￥218.00</strong>
+                        <strong>￥<?php echo ($countPrice); ?></strong>
                         元
                     </p>
                 </div>

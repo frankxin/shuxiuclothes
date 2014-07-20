@@ -408,27 +408,17 @@ function HS_setDate(inputObj){
       <div class="intro">
         <span>型号：</span>
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary active">
-            <input type="radio" name="size" id="option1" value="175" checked> 175
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="size" id="option2" value="180"> 180
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="size" id="option3" value="185"> 185
-          </label>
+           
+          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><label class="btn btn-primary active">
+              <input type="radio" name="size" id="option<?php echo ($key); ?>" value="<?php echo ($detail['size'][$key]); ?>" checked> <?php echo ($detail['size'][$key]); ?>
+            </label><?php endforeach; endif; else: echo "" ;endif; ?>
+        <input type=hidden name="id" value=<?php echo ($detail['id']); ?>>
         </div>
         <span>颜色：</span>
         <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary active">
-            <input type="radio" name="color" id="option1" value="蓝色" checked> 蓝色
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="color" id="option2" value="黑色"> 黑色
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" name="color" id="option3" value="紫色"> 紫色
-          </label>
+          <?php if(is_array($detail['color'])): $i = 0; $__LIST__ = $detail['color'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><label class="btn btn-primary active">
+            <input type="radio" name="color" id="option<?php echo ($key); ?>" value="<?php echo ($detail['color'][$key]); ?>" checked> <?php echo ($detail['color'][$key]); ?>
+          </label><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         <div class="item-time">
           开始时间：<input name="startTime" type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)" class="it">

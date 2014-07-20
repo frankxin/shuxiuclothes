@@ -314,15 +314,18 @@
 		public function Bucket()
 		{
 			$cart = D("User");
-
+			$ca = D("CA");
 			if($_SESSION['user']['uid']){
 				$cartReturn = $cart->getCartByUid($_SESSION['user']['uid']);
-				var_dump($cartReturn);
+				foreach ($cartReturn as $key => $value) {
+				$countPrice += $value['countPrice'];
+			}
 			}
 			else{
 				//login
 			}
 			$this->assign('cartReturn',$cartReturn);
+			$this->assign('countPrice',$countPrice);
 			$this->display();
 		}
 	}
