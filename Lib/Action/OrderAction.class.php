@@ -42,7 +42,8 @@
 		{
 			$ca = D("CA");
 			$detail = $ca->getCAdetail($_GET['id']);
-			var_dump($_POST);
+			
+			var_dump($detail,$_POST);
 			$this->assign('detail',$detail);
 			$this->display();
 		}

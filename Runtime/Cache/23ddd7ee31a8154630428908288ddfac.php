@@ -404,36 +404,42 @@ function HS_setDate(inputObj){
         </div>
       </div>
       <!-- indexCon end -->
-      
+    <form action="<?php echo U('Order/submit');?>" method="post">
       <div class="intro">
-        <div class="item-price">
-          <span class="item-price-detail1">租赁价格：</span><span class="item-price-detail2"><?php echo ($detail['price']); ?></span>
-          <span class="item-price-detail3">RMB</span><span class="item-price-detail4">/天</span>
+        <span>型号：</span>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="size" id="option1" value="175" checked> 175
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option2" value="180"> 180
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="185"> 185
+          </label>
         </div>
-        <div class="item-size" id="item-size">
-          <span class="item-size-detail1">颜色:</span>
-          <div>
-            <?php if(is_array($detail['color'])): $i = 0; $__LIST__ = $detail['color'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2 changecolor1"><?php echo ($detail['color'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
-          </div>
-          <div class="clear"></div>
-        </div>
-        <div class="item-size" id="item-size">
-          <span class="item-size-detail1">型号:</span>
-          <div>
-            <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><span class="item-size-detail2 changecolor2"><?php echo ($detail['size'][$key]); ?></span><?php endforeach; endif; else: echo "" ;endif; ?>
-          </div>
-          <div class="clear"></div>
+        <span>颜色：</span>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="color" id="option1" value="蓝色" checked> 蓝色
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option2" value="黑色"> 黑色
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option3" value="紫色"> 紫色
+          </label>
         </div>
         <div class="item-time">
-          开始时间：<input type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)">
-          结束时间：<input type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)">
+          开始时间：<input name="startTime" type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)" class="it">
+          结束时间：<input name="endTime" type="text" style="width:70px;border-radius:4px;font-size:14px;" onfocus="HS_setDate(this)" class="it">
         </div>
         <div class="item-goto">
-          <span class="item-goto-shoppingcar item-distance"><a href="<?php echo U("Order/submit",array("id"=>$detail['id']));?>">加入购物车</a></span>
+          <input type="submit">
           <div class="clear"></div>
         </div>
       </div>
-    </div>
+    </form>
     <!-- 图片模态化-->
 
     <div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -476,6 +482,21 @@ function HS_setDate(inputObj){
       $(this).css("background-color","rgb(61, 118, 219)");
       $(this).css("color","rgb(255, 255, 255)")
     })
+
+    var itime = $(".item-time input");
+
+    $(".item-goto input").click(function(){
+      for (var i = 0; i < itime.length; i++) {
+       var vl = itime.eq(i).val();
+       itime.eq(i).attr("value" , vl);
+    };
+    })
+
+  
+    // for (var i = 0; i < itime.length; i++) {
+    //   var vl = itime.eq(i).val();
+    //   itime.eq(i).attr("value" , vl); 
+    // };
     
 
     // changeColor("changecolor1");
