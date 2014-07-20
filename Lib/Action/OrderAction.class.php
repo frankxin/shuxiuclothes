@@ -42,12 +42,26 @@
 			$ca = D("Order");
 			$detail = $ca->getSubmitDetial($_POST['id'],$_POST['size'],$_POST['color'],strtotime($_POST['startTime']),strtotime($_POST['endTime']));
 			if(empty($_SESSION['user']['uid'])){
-				//login
+				var_dump("login");
 			}
 			else{
 				$ca->inputToCart($_SESSION['user']['uid'],$detail['id'],$detail['size'],$detail['color'],$detail['startTime'],$detail['endTime']);
+				$detail['startTime'] = date('Y年m月d日',strtotime($detail['startTime']));
+				$detail['endTime'] = date('Y年m月d日',strtotime($detail['endTime']));
 				$this->assign('detail',$detail);
 				$this->display();
 			}
+		}
+
+		public function order()
+		{
+			$ca = D("Order");
+			if(empty($_SESSION['user']['uid'])){
+				var_dump("login");
+			}
+			else{
+				$ca->inputToOrder($_SESSION['user']['uid']);
+			}
+			$this->display();
 		}
 	}

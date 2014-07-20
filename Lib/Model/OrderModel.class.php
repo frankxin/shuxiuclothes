@@ -48,14 +48,41 @@
 		{
 			$ca = D("CA");
 			$caDetail = $ca->getCAdetail($id);
+			$detail['id'] =$id;
 			$detail['description'] =$caDetail['description'];
 			$detail['size'] = $size;
 			$detail['color'] = $color;
 			$detail['price'] = $caDetail['price'];
-			$detail['startTime'] = date('Y年m月d日', $startTime);
-			$detail['endTime'] = date('Y年m月d日', $endTime);
+			$detail['startTime'] = date('Y-m-d', $startTime);
+			$detail['endTime'] = date('Y-m-d', $endTime);
 			$detail['countTime'] = ($endTime - $startTime) / 86400;
 			$detail['countPrice'] = $detail['countTime'] * $caDetail['price'];
 			return $detail;
+		}
+
+		public function inputToOrder($uid)
+		{
+			$user = D("User");
+			$order = M("order");
+			$order_detail = M("order_detail");
+			$cartReturn = $user->getCartByUid($uid);
+			$countPrice = $user->getCountPrice($cartReturn);
+
+			$orderInput['complete'] = 0;
+			$orderInput['uid'] = $uid;
+			$orderInput['price'] = $countPrice;
+			$orderInput['time'] = time();
+			$orderID = $order->add($orderInput);
+			var_dump($orderID);
+			foreach ($cartReturn as $key => $value) {
+				$order_detail_Input['orderID'] = $orderID;
+				$order_detail_Input['caID'] = $value['id'];
+				$order_detail_Input['price'] = $value['price'];
+				$order_detail_Input['cacolor'] = $value['color'];
+				$order_detail_Input['casize'] = $value['size'];
+				$order_detail_Input['startTime'] = $value['startTime'];
+				$order_detail_Input['endTime'] = $value['endTime'];
+				$order_detail->add($order_detail_Input);
+			}
 		}
 	}

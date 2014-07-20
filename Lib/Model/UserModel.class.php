@@ -119,4 +119,11 @@
 			}
 			return $return;
 		}
+		
+		public function getCountPrice($cartReturn){
+			foreach ($cartReturn as $key => $value) {
+				$countPrice += $value['countPrice'];
+			}
+			return $countPrice;
+		}
 	}

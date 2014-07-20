@@ -1,27 +1,19 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="../Public/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../Public/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../Public/css/bucket.css">
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <title></title>
+     <meta charset="utf-8"/>
+     <link rel="stylesheet" href="../Public/css/bootstrap.css">
+     <link rel="stylesheet" type="text/css" href="../Public/css/header.css">
+     <link rel="stylesheet" type="text/css" href="../Public/css/userMenu.css">
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../Public/js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <style type="text/css">
-    body{
-    	background:url("../Public/images/mybg.jpg");
-    }
-    </style>
 </head>
 <body>
-	<!--加入header-->	
- 	<div id="zzx-header-top">
+<div id="zzx-header-top">
       <div class="zzx-header-top-logo">
         <img src="../Public/images/logo.png">
         <img src="../Public/images/head.png">
@@ -185,59 +177,86 @@
       }
     </script>
 
-
-    <div class="pure-g-r bucket-main">
-        <div class="pure-u-1 bucket-main-table">
-            <!-- 商品表格开始 -->
-            <table class="bucket-table bucket-pre">
-                <tbody>
-                    <tr>
-                        <th class="th1">商品信息</th>
-                        <th class="th2">单价（元/天）</th>
-                        <th class="th3">租赁天数</th>
-                        <th class="th4">总计（元）</th>
-                        <th class="th5">操作</th>
-                    </tr>
-                </tbody>
-            </table>
-            <?php if(is_array($cartReturn)): $i = 0; $__LIST__ = $cartReturn;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><table class="bucket-table bucket-goods">
-                <tbody>
-                    <tr class="bucket-goods-tr">
-                        <th class="th1">
-                            <span><?php echo ($vo["description"]); ?></span>
-                        </th>
-                        <th class="th2"><?php echo ($vo["price"]); ?></th>
-                        <th class="th3"><?php echo ($vo["countTime"]); ?></th>
-                        <th class="th4"><?php echo ($vo["countPrice"]); ?></th>
-                        <th class="th5"></th>
-                    </tr>
-                </tbody>
-            </table><?php endforeach; endif; else: echo "" ;endif; ?>
-            <!-- 商品总价格栏开始 -->
-
-            <div class="bucket-total">
-                <div class="bucket-batch">
-                    <input type="checkbox" checked="checked">
-                    <span>全选</span>
-                    <a href="javascript:;">批量删除</a>
-                </div>
-                <div class="right">
-                    <p class="price">商品总价（<span>￥<?php echo ($countPrice); ?></span>）- 活动（<span>￥32.00</span>）= 商品金额总计（<span>￥<?php echo ($countPrice); ?></span>）</p>
-                    <p>
-                        商品总价（免运费）
-                        <strong>￥<?php echo ($countPrice); ?></strong>
-                        元
-                    </p>
-                </div>
-            </div>
-
-            <!-- 提交按钮 -->
-
-            <div class="bucket-submit">
-                <button class="my-button" href="<?php echo U('Order/order');?>">去结算</button>
-            </div>
-        </div>
-    </div>
-<script src="../Public/js/bucket.js"></script>
+<div class="content">
+	<div class="panel-group width-control" id="accordion">
+  		<div class="panel panel-default">
+    		<div class="panel-heading">
+      		<h4 class="panel-title">
+        	<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          用户管理
+        	</a>
+      		</h4>
+    		</div>
+    	<div id="collapseOne" class="panel-collapse collapse in">
+      		<div class="panel-body" id="panel-body">
+        		<ul>
+        			<li>
+        				<a href="javascript:;" id="myinfoM">个人信息管理</a>
+        			</li>
+        			<li>
+        				<a href="javascript:;"id="mylistM">我的订单</a>
+        			</li>
+        		</ul>
+      		</div>
+    	</div>
+  	</div>
+  	</div>
+  	<div class="main-content zzx-hide" id="myinfo">
+  		<div class="tab-pane" id="other">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>邮箱</th>
+                <th>操作</th>
+              </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><?php echo ($_SESSION['user']['real_name']); ?></td>
+            <td><?php echo ($_SESSION['user']['phone']); ?></td>
+            <td><?php echo ($_SESSION['user']['email']); ?></td>
+           	<td><a href="#">修改密码</a></td>
+          </tr>
+        </tbody>
+    </table>
+ </div>
+  	</div>
+  	<div class="main-content" id="mylist">
+  		<div class="tab-pane" id="other">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>订单编号</th>
+                <th>订单信息</th>
+                <th>尺寸</th>
+                <th>颜色</th>
+                <th>价格</th>
+              </tr>
+        </thead>
+        <tbody>
+          <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                <td><?php echo ($vo["id"]); ?></td>
+                <td><?php echo ($vo["ca"]['description']); ?></td>
+                <td><?php echo ($vo["casize"]); ?>cm</td>
+                <td><?php echo ($vo["color"]["color"]); ?></td>
+                <td><?php echo ($vo["price"]); ?></td>
+              </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+        </tbody>
+    </table>
+ </div>
+  	</div>
+</div>
+ <script type="text/javascript">
+      $("#myinfoM").click(function(){
+          $("#myinfo").css("display","block");
+          $("#mylist").css("display","none");
+      })
+      $("#mylistM").click(function(){
+          $("#mylist").css("display","block");
+          $("#myinfo").css("display","none");
+      })
+</script> 
 </body>
 </html>

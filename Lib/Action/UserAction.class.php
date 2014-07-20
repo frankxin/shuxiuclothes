@@ -317,12 +317,10 @@
 			$ca = D("CA");
 			if($_SESSION['user']['uid']){
 				$cartReturn = $cart->getCartByUid($_SESSION['user']['uid']);
-				foreach ($cartReturn as $key => $value) {
-				$countPrice += $value['countPrice'];
-			}
+				$countPrice = $cart->getCountPrice($cartReturn);
 			}
 			else{
-				//login
+				var_dump("login");
 			}
 			$this->assign('cartReturn',$cartReturn);
 			$this->assign('countPrice',$countPrice);
