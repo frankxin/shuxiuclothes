@@ -79,14 +79,13 @@ body,
 .bucket-goods .bucket-goods-tr{
 	border:1px solid #ccc;
 	height: 30px;
-	cor
 	text-align:left;
 }
-.bucket-goods .bucket-goods-tr th{
-	background: #f8f8f8;
+.bucket-goods .bucket-goods-tr td{
+	color:#ffffff;
+	font-weight: bold;
 }
 .bucket-goods .bucket-goods-tr .th1{
-	color: #333;
 	padding-left: 10px;
 	text-align: left;
 }
