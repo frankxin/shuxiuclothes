@@ -34,23 +34,14 @@
     		</span>
     	</div>
     	<div class="order">
-    		<div class="order-detail">已将此商品加入购物车</div>
+    		<div class="order-detail">已生成订单</div>
     		<div class="tab-pane" id="other">
                 <div class="image">
                     <a href="#"><img src="../Public/images/1.jpg" width="100px" height="100px"></a>
                 </div>
-                <div class="detail">
-                    <span>描述：{$detail['description']}</span>
-                    <span>型号：{$detail['size']}</span>
-                    <span>颜色：{$detail['color']}</span>
-                    <span>开始时间：{$detail['startTime']}</span>
-                    <span>结束时间：{$detail['endTime']}</span>
-                    <span>租赁天数：{$detail['countTime']}</span>
-                    <span>总计价格：{$detail['countPrice']}</span>
-                </div>
             </div>
 			<div class="order-submit">
-				<div class="submit"><a href="{:U('User/Bucket')}">进入购物车</a></div>
+				<div class="submit"><a href="{:U('Order/index')}">返回购物</a></div>
 			</div>
     	</div>
     </div>

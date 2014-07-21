@@ -27,7 +27,6 @@
 		{
 			$ca = D("CA");
 			$detail = $ca->getCAdetail($_GET['id']);
-			var_dump($detail);
 			//$_SESSION['user']
 			$this->assign('detail',$detail);
 			$this->display();
@@ -40,22 +39,29 @@
 
 		public function submit()
 		{
-			$ca = D("CA");
-			$detail = $ca->getCAdetail($_GET['id']);
-			//var_dump($detail);
-			$this->assign('detail',$detail);
-			$this->display();
-		}
-		public function Bucket()
-		{
-			$cart = D("Order");
-			if($_SESSION['user']['uid']){
-				$cartReturn = $cart->getCartByUid($_SESSION['user']['uid']);
+			$ca = D("Order");
+			$detail = $ca->getSubmitDetial($_POST['id'],$_POST['size'],$_POST['color'],strtotime($_POST['startTime']),strtotime($_POST['endTime']));
+			if(empty($_SESSION['user']['uid'])){
+				var_dump("login");
 			}
 			else{
-				//login
+				$ca->inputToCart($_SESSION['user']['uid'],$detail['id'],$detail['size'],$detail['color'],$detail['startTime'],$detail['endTime']);
+				$detail['startTime'] = date('Y年m月d日',strtotime($detail['startTime']));
+				$detail['endTime'] = date('Y年m月d日',strtotime($detail['endTime']));
+				$this->assign('detail',$detail);
+				$this->display();
 			}
-			$this->assign('cartReturn',$cartReturn);
+		}
+
+		public function order()
+		{
+			$ca = D("Order");
+			if(empty($_SESSION['user']['uid'])){
+				var_dump("login");
+			}
+			else{
+				$ca->inputToOrder($_SESSION['user']['uid']);
+			}
 			$this->display();
 		}
 	}

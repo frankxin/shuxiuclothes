@@ -37,20 +37,21 @@
                     </tr>
                 </tbody>
             </table>
+            <volist name="cartReturn" id="vo">
             <table class="bucket-table bucket-goods">
                 <tbody>
                     <tr class="bucket-goods-tr">
                         <th class="th1">
-                            <span>普通商品</span>
+                            <span>{$vo.description}</span>
                         </th>
-                        <th class="th2"></th>
-                        <th class="th3"></th>
-                        <th class="th4"></th>
+                        <th class="th2">{$vo.price}</th>
+                        <th class="th3">{$vo.countTime}</th>
+                        <th class="th4">{$vo.countPrice}</th>
                         <th class="th5"></th>
                     </tr>
                 </tbody>
             </table>
-
+            </volist>
             <!-- 商品总价格栏开始 -->
 
             <div class="bucket-total">
@@ -60,10 +61,10 @@
                     <a href="javascript:;">批量删除</a>
                 </div>
                 <div class="right">
-                    <p class="price">商品总价（<span>￥250.00</span>）- 活动（<span>￥32.00</span>）= 商品金额总计（<span>￥218.00</span>）</p>
+                    <p class="price">商品总价（<span>￥{$countPrice}</span>）- 活动（<span>￥32.00</span>）= 商品金额总计（<span>￥{$countPrice}</span>）</p>
                     <p>
                         商品总价（免运费）
-                        <strong>￥218.00</strong>
+                        <strong>￥{$countPrice}</strong>
                         元
                     </p>
                 </div>
@@ -72,7 +73,7 @@
             <!-- 提交按钮 -->
 
             <div class="bucket-submit">
-                <button class="my-button">去结算</button>
+                <button class="my-button" href="{:U('Order/order')}">去结算</button>
             </div>
         </div>
     </div>

@@ -311,4 +311,19 @@
 			}
 			return $data;
 		}
+		public function Bucket()
+		{
+			$cart = D("User");
+			$ca = D("CA");
+			if($_SESSION['user']['uid']){
+				$cartReturn = $cart->getCartByUid($_SESSION['user']['uid']);
+				$countPrice = $cart->getCountPrice($cartReturn);
+			}
+			else{
+				var_dump("login");
+			}
+			$this->assign('cartReturn',$cartReturn);
+			$this->assign('countPrice',$countPrice);
+			$this->display();
+		}
 	}

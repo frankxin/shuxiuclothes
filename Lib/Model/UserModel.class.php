@@ -109,4 +109,21 @@
 			$list = $this->where($map)->order($order)->limit($Page->firstRow.','.$Page->listRows)->select();
 			return array("show"=>$show,"list"=>$list);
 		}
+		
+		public function getCartByUid($uid)
+		{
+			$cart =  M("cart")->where(array("uid"=>$uid))->select();
+			$order =D("Order");
+			foreach ($cart as $key => $value) {
+				$return[$key] = $order->getSubmitDetial($value['caID'],$value['casize'],$value['cacolor'],$value['startTime'],$value['endTime']);
+			}
+			return $return;
+		}
+		
+		public function getCountPrice($cartReturn){
+			foreach ($cartReturn as $key => $value) {
+				$countPrice += $value['countPrice'];
+			}
+			return $countPrice;
+		}
 	}
