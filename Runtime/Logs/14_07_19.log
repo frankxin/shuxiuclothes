@@ -3118,3 +3118,6 @@ INFO: [ view_end ] --END-- [ RunTime:0.000745s ]
 ERR: 模板不存在[E:/wamp/www/shuxiuclothes/Tpl/./Tpl/SPage/theme/default/content2.html.html]
 >>>>>>> 1ddd0a7697168450662b6d74cb09248c5c609386
 
+[ 2014-07-19T21:23:22+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/Admin/%7B%7D
+ERR: 非法操作:{}
+

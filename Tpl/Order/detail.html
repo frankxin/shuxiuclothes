@@ -248,7 +248,7 @@ function HS_setDate(inputObj){
            
           <volist name="detail['size']" id="vo">
             <label class="btn btn-primary active">
-              <input type="radio" name="size" id="option{$key}" value="{$detail['size'][$key]}" checked> {$detail['size'][$key]}
+              <input type="radio" name="size" id="option{$key}" value="{$detail['size'][$key]}" > {$detail['size'][$key]}
             </label>
           </volist>
         <input type=hidden name="id" value={$detail['id']}>
@@ -257,7 +257,7 @@ function HS_setDate(inputObj){
         <div class="btn-group" data-toggle="buttons">
           <volist name="detail['color']" id="vo">
           <label class="btn btn-primary active">
-            <input type="radio" name="color" id="option{$key}" value="{$detail['color'][$key]}" checked> {$detail['color'][$key]}
+            <input type="radio" name="color" id="option{$key}" value="{$detail['color'][$key]}" > {$detail['color'][$key]}
           </label>
           </volist>
         </div>
