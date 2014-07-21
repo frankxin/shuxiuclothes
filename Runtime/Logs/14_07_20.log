@@ -457,3 +457,9 @@ INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000474s ]
 INFO: [ app_begin ] --END-- [ RunTime:0.000560s ]
 ERR: 非法操作:php
 
+[ 2014-07-20T22:36:36+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/User/php/bucketfunction.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000482s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000560s ]
+ERR: 非法操作:php
+

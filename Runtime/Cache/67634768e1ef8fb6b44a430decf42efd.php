@@ -213,7 +213,7 @@
                 </div>
             </div>
 			<div class="order-submit">
-				<div class="submit"><a href="success-message.html">进入购物车</a></div>
+				<div class="submit"><a href="<?php echo U('User/Bucket');?>">进入购物车</a></div>
 			</div>
     	</div>
     </div>
