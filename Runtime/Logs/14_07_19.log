@@ -1,3 +1,6 @@
 [ 2014-07-19T20:53:04+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/SPage/view/type/1/cat/3.html
 ERR: 模板不存在[E:/wamp/www/shuxiuclothes/Tpl/./Tpl/SPage/theme/default/content2.html.html]
 
+[ 2014-07-19T21:23:22+08:00 ] 0.0.0.0 /shuxiuclothes/index.php/Admin/%7B%7D
+ERR: 非法操作:{}
+

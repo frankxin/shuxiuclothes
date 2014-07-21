@@ -107,6 +107,7 @@
             配件:
             <input type="radio" name="type" value="1" id="getRadio" />
         </div>
+        
         <div id="display-control1">
         	<div>
                 蓝色：
