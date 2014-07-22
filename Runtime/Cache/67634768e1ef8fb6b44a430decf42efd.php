@@ -200,16 +200,16 @@
     		<div class="order-detail">已将此商品加入购物车</div>
     		<div class="tab-pane" id="other">
                 <div class="image">
-                    <a href="#"><img src="../Public/images/1.jpg" width="100px" height="100px"></a>
+                    <a ><img src="__PUBLIC__/upload<?php echo ($detail['image']); ?>"  width="100px" height="100px"></a>
                 </div>
                 <div class="detail">
-                    <span>描述：<?php echo ($detail['description']); ?></span>
-                    <span>型号：<?php echo ($detail['size']); ?></span>
-                    <span>颜色：<?php echo ($detail['color']); ?></span>
-                    <span>开始时间：<?php echo ($detail['startTime']); ?></span>
-                    <span>结束时间：<?php echo ($detail['endTime']); ?></span>
-                    <span>租赁天数：<?php echo ($detail['countTime']); ?></span>
-                    <span>总计价格：<?php echo ($detail['countPrice']); ?></span>
+                    <div>描述：<?php echo ($detail['description']); ?></div>
+                    <div>型号：<?php echo ($detail['size']); ?></div>
+                    <div>颜色：<?php echo ($detail['color']); ?></div>
+                    <div>开始时间：<?php echo ($detail['startTime']); ?></div>
+                    <div>结束时间：<?php echo ($detail['endTime']); ?></div>
+                    <div>租赁天数：<?php echo ($detail['countTime']); ?></div>
+                    <div>总计价格：<?php echo ($detail['countPrice']); ?></div>
                 </div>
             </div>
 			<div class="order-submit">

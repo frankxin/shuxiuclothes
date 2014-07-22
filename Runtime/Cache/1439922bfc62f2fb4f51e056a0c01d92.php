@@ -1,26 +1,19 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="../Public/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../Public/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../Public/css/list.css">
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <title></title>
+     <meta charset="utf-8"/>
+     <link rel="stylesheet" href="../Public/css/bootstrap.css">
+     <link rel="stylesheet" type="text/css" href="../Public/css/header.css">
+     <link rel="stylesheet" type="text/css" href="../Public/css/userMenu.css">
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../Public/js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <style type="text/css">
-    body{
-    	background:url("../Public/images/mybg.jpg");
-    }
-    </style>
 </head>
 <body>
-	<div id="zzx-header-top">
+<div id="zzx-header-top">
       <div class="zzx-header-top-logo">
         <img src="../Public/images/logo.png">
         <img src="../Public/images/head.png">
@@ -184,87 +177,86 @@
       }
     </script>
 
-
-    <div id="content">
-    <!--选衣服流程-->
-    <!-- Split button -->
- <!--  	<div id="select-order">
-    	<ul>
-    		<li><a href="#"><img src="../Public/images/select1.jpg"></a></li>
-    		<li><a href="page1.1.html"><img src="../Public/images/selected2.jpg"></a></li>
-    		<li><a href="#"><img src="../Public/images/select-disable3.jpg"></a></li>
-    	</ul>    		
-    </div> -->
-    <!--条件选择-->
-    <!-- Split button -->
-    <div style="border-bottom: 3px dashed white;border-radius: 4px;padding-left: 145px;">
-        <div class="btn-group btn-pos" data-toggle="buttons">
-            <label class="btn btn-primary  style-link">
-                <input type="radio" name="options" id="option1" checked> <a src="<?php echo U("Order/index",array("gender"=>"0"));?>" >男</a>
-            </label>
-            <label class="btn btn-primary style-link">
-                <input type="radio" name="options" id="option2"> <a href="<?php echo U("Order/index",array("gender"=>"1"));?>">女</a>
-            </label>
-        </div>
-        <div class="btn-group btn-pos" data-toggle="buttons">
-            <label class="btn btn-primary  close-peijian style-link">
-                    <input type="radio" name="options" id="option1" checked><a href="#">正装</a>
-            </label>
-            <label class="btn btn-primary findmore style-link">
-                <input type="radio" name="options" id="option2" > <a href="#">配件</a>
-            </label>
-        </div>
-        <div class="btn-group btn-pos display-peijian" data-toggle="buttons">
-            <label class="btn btn-primary  style-link ">
-                <input type="radio" name="options" id="option1" checked> <a href="#">鞋子</a>
-            </label>
-            <label class="btn btn-primary style-link">
-                <input type="radio" name="options" id="option2"><a href="#">领带</a>
-            </label>
-            <label class="btn btn-primary style-link">
-                <input type="radio" name="options" id="option3"><a href="#">衬衫</a>
-            </label>
-        </div>
-    </div>
-    <!-- <div id="some-choice-all">
-    	<div id="sex" class="some-choice" style="font-size:20px;line-height: 1.618; color:#ccc;">
-    	请选择性别：<a href="<?php echo U('Order/index',array('gender'=>0));?>"><span class="choice-deco">男</span></a><a href="<?php echo U('Order/index',array('gender'=>1));?>" ><span class="choice-deco">女</span></a>
+<div class="content">
+	<div class="panel-group width-control" id="accordion">
+  		<div class="panel panel-default">
+    		<div class="panel-heading">
+      		<h4 class="panel-title">
+        	<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          用户管理
+        	</a>
+      		</h4>
+    		</div>
+    	<div id="collapseOne" class="panel-collapse collapse in">
+      		<div class="panel-body" id="panel-body">
+        		<ul>
+        			<li>
+        				<a href="javascript:;" id="myinfoM">个人信息管理</a>
+        			</li>
+        			<li>
+        				<a href="javascript:;"id="mylistM">我的订单</a>
+        			</li>
+        		</ul>
+      		</div>
     	</div>
-    </div> -->
-    <!--衣服展示-->
-    <div style="position:relative;">
-        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div id="showbox">
-                    <div id="showbox-inner">
-                    <a href="<?php echo U("Order/detail",array("id"=>$vo['id']));?>" target="_blank"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
-                    <div class="details">
-                     <p><?php echo ($vo["description"]); ?></p>
-                        <div id="price">
-                            <?php echo ($vo["price"]); ?>RMB<span>/天</span>
-                        </div>
-                    </div>
-                </div>
-            </div><?php endforeach; endif; else: echo "" ;endif; ?>
-        
-    <div id="index">
-    	<ul class="pagination pagination-lg">
-            <?php echo ($page); ?>
-		</ul>
-    </div>
-    </div>
-<script type="text/javascript">
-    var oActive=document.getElementById("active");
-    var oUl=oActive.getElementsByTagName("ul");
-    var aLi=oUl[0].getElementsByTagName("li");
-
-    aLi[1].className+="zzx-active";
-</script>
-<script type="text/javascript">
-    $(".findmore").click(function(){
-        $(".display-peijian").css("display","inline-block");
-    })
-    $(".close-peijian").click(function(){
-        $(".display-peijian").css("display","none");
-    })
-</script>    
+  	</div>
+  	</div>
+  	<div class="main-content zzx-hide" id="myinfo">
+  		<div class="tab-pane" id="other">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>邮箱</th>
+                <th>操作</th>
+              </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><?php echo ($_SESSION['user']['real_name']); ?></td>
+            <td><?php echo ($_SESSION['user']['phone']); ?></td>
+            <td><?php echo ($_SESSION['user']['email']); ?></td>
+           	<td><a href="#">修改密码</a></td>
+          </tr>
+        </tbody>
+    </table>
+ </div>
+  	</div>
+  	<div class="main-content" id="mylist">
+  		<div class="tab-pane" id="other">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>订单编号</th>
+                <th>订单信息</th>
+                <th>尺寸</th>
+                <th>颜色</th>
+                <th>价格</th>
+              </tr>
+        </thead>
+        <tbody>
+          <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                <td><?php echo ($vo["id"]); ?></td>
+                <td><?php echo ($vo["ca"]['description']); ?></td>
+                <td><?php echo ($vo["casize"]); ?>cm</td>
+                <td><?php echo ($vo["color"]["color"]); ?></td>
+                <td><?php echo ($vo["price"]); ?></td>
+              </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+        </tbody>
+    </table>
+ </div>
+  	</div>
+</div>
+ <script type="text/javascript">
+      $("#myinfoM").click(function(){
+          $("#myinfo").css("display","block");
+          $("#mylist").css("display","none");
+      })
+      $("#mylistM").click(function(){
+          $("#mylist").css("display","block");
+          $("#myinfo").css("display","none");
+      })
+</script> 
 </body>
 </html>

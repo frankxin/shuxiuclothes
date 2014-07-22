@@ -199,15 +199,15 @@
     <!-- Split button -->
     <div style="border-bottom: 3px dashed white;border-radius: 4px;padding-left: 145px;">
         <div class="btn-group btn-pos" data-toggle="buttons">
-            <label class="btn btn-primary  style-link">
-                <input type="radio" name="options" id="option1" checked> <a src="<?php echo U("Order/index",array("gender"=>"0"));?>" >男</a>
+            <label class="btn btn-primary active style-link">
+                <input type="radio" name="options" id="option1" checked> <a href="#">男</a>
             </label>
             <label class="btn btn-primary style-link">
-                <input type="radio" name="options" id="option2"> <a href="<?php echo U("Order/index",array("gender"=>"1"));?>">女</a>
+                <input type="radio" name="options" id="option2"> <a href="#">女</a>
             </label>
         </div>
         <div class="btn-group btn-pos" data-toggle="buttons">
-            <label class="btn btn-primary  close-peijian style-link">
+            <label class="btn btn-primary active close-peijian style-link">
                     <input type="radio" name="options" id="option1" checked><a href="#">正装</a>
             </label>
             <label class="btn btn-primary findmore style-link">
@@ -215,7 +215,7 @@
             </label>
         </div>
         <div class="btn-group btn-pos display-peijian" data-toggle="buttons">
-            <label class="btn btn-primary  style-link ">
+            <label class="btn btn-primary active style-link ">
                 <input type="radio" name="options" id="option1" checked> <a href="#">鞋子</a>
             </label>
             <label class="btn btn-primary style-link">

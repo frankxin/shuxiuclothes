@@ -38,9 +38,13 @@
 			$data['caID'] = $caID;
 			$data['casize'] = $casize;
 			$data['cacolor'] = $cacolor;
+			if($cart->where(array("uid"=>$uid,"caID"=>$caID,"casize"=>$casize,"cacolor"=>$cacolor))->select()){
+				return 1;
+			}
 			$data['startTime'] = strtotime($startTime);
 			$data['endTime'] = strtotime($endTime);
 			$cart->add($data);
+			return 0;
 		}
 
 
@@ -49,6 +53,7 @@
 			$ca = D("CA");
 			$caDetail = $ca->getCAdetail($id);
 			$detail['id'] =$id;
+			$detail['image'] =$caDetail['image'][0];
 			$detail['description'] =$caDetail['description'];
 			$detail['size'] = $size;
 			$detail['color'] = $color;
@@ -84,5 +89,11 @@
 				$order_detail_Input['endTime'] = $value['endTime'];
 				$order_detail->add($order_detail_Input);
 			}
+		}
+
+		public function deleteCaFromCart($caid)
+		{
+			$cart = M("cart");
+			$cart->where(array("id"=>$id))->delete();
 		}
 	}

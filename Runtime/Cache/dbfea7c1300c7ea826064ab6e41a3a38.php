@@ -410,7 +410,6 @@ function HS_setDate(inputObj){
         <div class="btn-group" data-toggle="buttons">
            
           <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><label class="btn btn-primary ">
-
               <input type="radio" name="size" id="option<?php echo ($key); ?>" value="<?php echo ($detail['size'][$key]); ?>" > <?php echo ($detail['size'][$key]); ?>
             </label><?php endforeach; endif; else: echo "" ;endif; ?>
         <input type=hidden name="id" value=<?php echo ($detail['id']); ?>>

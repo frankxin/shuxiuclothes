@@ -2,7 +2,7 @@
 
 #showbox{
 	width: 228px;
-	height: auto;
+	height: 360px;
 	background-color:#FFFFF0;
 	position: relative;
 	top: 35px;
@@ -129,4 +129,8 @@
 }
 .display-peijian{
 	display:none;
+}
+.style-link a{
+	text-decoration: none;
+	color: #ffffff;
 }

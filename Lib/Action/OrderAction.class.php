@@ -28,6 +28,7 @@
 			$ca = D("CA");
 			$detail = $ca->getCAdetail($_GET['id']);
 			//$_SESSION['user']
+			var_dump($detail);
 			$this->assign('detail',$detail);
 			$this->display();
 		}
@@ -45,11 +46,17 @@
 				var_dump("login");
 			}
 			else{
-				$ca->inputToCart($_SESSION['user']['uid'],$detail['id'],$detail['size'],$detail['color'],$detail['startTime'],$detail['endTime']);
-				$detail['startTime'] = date('Y年m月d日',strtotime($detail['startTime']));
-				$detail['endTime'] = date('Y年m月d日',strtotime($detail['endTime']));
-				$this->assign('detail',$detail);
-				$this->display();
+				if($ca->inputToCart($_SESSION['user']['uid'],$detail['id'],$detail['size'],$detail['color'],$detail['startTime'],$detail['endTime'])){
+					var_dump("已经买过该商品");
+				}
+				//$ca->inputToCart($_SESSION['user']['uid'],$detail['id'],$detail['size'],$detail['color'],$detail['startTime'],$detail['endTime']);
+				elseif (condition) {
+					$detail['startTime'] = date('Y年m月d日',strtotime($detail['startTime']));
+					$detail['endTime'] = date('Y年m月d日',strtotime($detail['endTime']));
+					$this->assign('detail',$detail);
+					$this->display();
+				}
+				
 			}
 		}
 
@@ -62,6 +69,13 @@
 			else{
 				$ca->inputToOrder($_SESSION['user']['uid']);
 			}
+			$this->display();
+		}
+
+		public function delete()
+		{
+			$ca = D("Order");
+			$ca->deleteCaFromCart($_GET['id']);
 			$this->display();
 		}
 	}
