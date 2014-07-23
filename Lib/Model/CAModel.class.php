@@ -51,9 +51,9 @@
 		{
 			import('ORG.Util.Page');
 			$map['status'] = 1;
-			if(!empty($type)) $map['type'] = $type;
+			if($type=='0' or $type=='1') $map['type'] = $type;
 			if(!empty($accessory_type)) $map['accessory_type'] = $accessory_type;
-			if(!empty($gender)) $map['gender'] = $gender;
+			if($gender=='0' or $gender=='1') $map['gender'] = $gender;
 			$count = $this->where($map)->count();
 			//var_dump($map,$count);
 			$Page  = new Page($count,$num);

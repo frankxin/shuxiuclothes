@@ -3,10 +3,10 @@
 	{
 		public function index()
 		{
-			if($_GET['gender']){
+			if($_GET['gender']=='0' or $_GET['gender']=='1'){
 				$gender = $_GET['gender'];
 			}
-			if($_GET['type']){
+			if($_GET['type']=='0' or $_GET['type']=='1'){
 				$type = $_GET['type'];
 			}
 			if($_GET['accessory_type']){
@@ -40,16 +40,23 @@
 		public function submit()
 		{
 			$ca = D("Order");
+			var_dump($_POST['aa']);
 			$detail = $ca->getSubmitDetial($_POST['id'],$_POST['size'],$_POST['color'],strtotime($_POST['startTime']),strtotime($_POST['endTime']));
 			if(empty($_SESSION['user']['uid'])){
 				var_dump("login");
 			}
 			else{
-				$ca->inputToCart($_SESSION['user']['uid'],$detail['id'],$detail['size'],$detail['color'],$detail['startTime'],$detail['endTime']);
-				$detail['startTime'] = date('Y年m月d日',strtotime($detail['startTime']));
-				$detail['endTime'] = date('Y年m月d日',strtotime($detail['endTime']));
-				$this->assign('detail',$detail);
-				$this->display();
+				if($ca->inputToCart($_SESSION['user']['uid'],$detail['id'],$detail['size'],$detail['color'],$detail['startTime'],$detail['endTime'])){
+					var_dump("已经买过该商品");
+				}
+				//$ca->inputToCart($_SESSION['user']['uid'],$detail['id'],$detail['size'],$detail['color'],$detail['startTime'],$detail['endTime']);
+				else {
+					$detail['startTime'] = date('Y年m月d日',strtotime($detail['startTime']));
+					$detail['endTime'] = date('Y年m月d日',strtotime($detail['endTime']));
+					$this->assign('detail',$detail);
+					$this->display();
+				}
+				
 			}
 		}
 
@@ -62,6 +69,13 @@
 			else{
 				$ca->inputToOrder($_SESSION['user']['uid']);
 			}
+			$this->display();
+		}
+
+		public function delete()
+		{
+			$ca = D("Order");
+			$ca->deleteCaFromCart($_GET['id']);
 			$this->display();
 		}
 	}
