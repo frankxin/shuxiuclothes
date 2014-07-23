@@ -78,7 +78,6 @@
 			$orderInput['price'] = $countPrice;
 			$orderInput['time'] = time();
 			$orderID = $order->add($orderInput);
-			var_dump($orderID);
 			foreach ($cartReturn as $key => $value) {
 				$order_detail_Input['orderID'] = $orderID;
 				$order_detail_Input['caID'] = $value['id'];

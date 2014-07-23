@@ -134,3 +134,18 @@
 	text-decoration: none;
 	color: #ffffff;
 }
+#map{
+	height: 46px;
+	width: 500px;
+}
+#map ul li{
+	float:left;
+	padding-right: 20px;
+	list-style: none;
+}
+#map ul li a{
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+}

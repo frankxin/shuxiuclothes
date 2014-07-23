@@ -309,6 +309,7 @@ function HS_setDate(inputObj){
        $(this).css("background-color","rgb(61, 118, 219)");
        $(this).css("color","rgb(255, 255, 255)")
     })
+
     $(".changecolor2").click(function(){
       $(this).siblings().css("background-color","rgb(255, 255, 255)");
       $(this).siblings().css("color","rgb(61, 118, 219)");
@@ -389,7 +390,7 @@ function HS_setDate(inputObj){
       console.log(size);
       console.log(color);
       console.log(hour);
-      $.post("{:U('Order/submit')}" , {sizes : size,colors : color ,hours : hour},function(data){alert(data);});
+      $.post({:U('Order/submit')} , {aa : "11"},function(data){alert(data));
     }
     
     $(".item-goto-shoppingcar").click(function(){

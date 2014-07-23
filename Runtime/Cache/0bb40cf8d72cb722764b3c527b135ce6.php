@@ -198,15 +198,37 @@
     <!--条件选择-->
     <!-- Split button -->
     <div style="border-bottom: 3px dashed white;border-radius: 4px;padding-left: 145px;">
-        <div class="btn-group btn-pos" data-toggle="buttons">
+        <div id="map">
+            <ul>
+                <li><a href="#">男</a></li>
+                <li><a href="#">女</a></li>
+            </ul>
+        </div>
+        <div id="map">
+            <ul>
+                <li><a href="#">正装</a></li>
+                <li><a href="#">配件</a></li>
+            </ul>
+        </div>
+        <div id="map">
+            <ul>
+                <li><a href="#">鞋</a></li>
+                <li><a href="#">领带</a></li>
+                <li><a href="#">衬衫</a></li>
+            </ul>
+        </div>
+        
+        <!-- <div class="btn-group btn-pos" data-toggle="buttons">
             <label class="btn btn-primary active style-link">
-                <input type="radio" name="options" id="option1" checked> <a href="#">男</a>
+                <a href="www.baidu.com">
+                <input type="radio" name="options" id="option1" checked> 男
+                </a>
             </label>
             <label class="btn btn-primary style-link">
                 <input type="radio" name="options" id="option2"> <a href="#">女</a>
             </label>
-        </div>
-        <div class="btn-group btn-pos" data-toggle="buttons">
+        </div> -->
+        <!-- <div class="btn-group btn-pos" data-toggle="buttons">
             <label class="btn btn-primary active close-peijian style-link">
                     <input type="radio" name="options" id="option1" checked><a href="#">正装</a>
             </label>
@@ -224,7 +246,7 @@
             <label class="btn btn-primary style-link">
                 <input type="radio" name="options" id="option3"><a href="#">衬衫</a>
             </label>
-        </div>
+        </div> -->
     </div>
     <!-- <div id="some-choice-all">
     	<div id="sex" class="some-choice" style="font-size:20px;line-height: 1.618; color:#ccc;">

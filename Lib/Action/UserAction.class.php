@@ -322,7 +322,6 @@
 			else{
 				var_dump("login");
 			}
-			var_dump($cartReturn);
 			$this->assign('cartReturn',$cartReturn);
 			$this->assign('countPrice',$countPrice);
 			$this->display();
