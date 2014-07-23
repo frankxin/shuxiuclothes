@@ -135,6 +135,14 @@
     $(".close-peijian").click(function(){
         $(".display-peijian").css("display","none");
     })
+</script>
+<script type="text/javascript">
+    $("#showbox-inner a").click(function(){
+        var name = "zhang";
+        var age = 20;
+
+        $.post("php",{name : name ,age : age});
+    })
 </script>    
 </body>
 </html>

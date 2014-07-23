@@ -198,23 +198,25 @@
     <!--条件选择-->
     <!-- Split button -->
     <div style="border-bottom: 3px dashed white;border-radius: 4px;padding-left: 145px;">
+
         <div id="map">
             <ul>
-                <li><a href="#">男</a></li>
-                <li><a href="#">女</a></li>
+                <li><a href="<?php echo U("Order/index",array("gender"=>"0"));?>">男</a></li>
+                <li><a href="<?php echo U("Order/index",array("gender"=>"1"));?>">女</a></li>
             </ul>
         </div>
         <div id="map">
             <ul>
-                <li><a href="#">正装</a></li>
-                <li><a href="#">配件</a></li>
+                <li><a href="<?php echo U("Order/index",array("type"=>"0"));?>">正装</a></li>
+                <li><a href="<?php echo U("Order/index",array("type"=>"1"));?>">配件</a></li>
             </ul>
         </div>
         <div id="map">
             <ul>
-                <li><a href="#">鞋</a></li>
-                <li><a href="#">领带</a></li>
-                <li><a href="#">衬衫</a></li>
+                <li><a href="<?php echo U("Order/index",array("accessory_type"=>"1"));?>">鞋子</a></li>
+                <li><a href="<?php echo U("Order/index",array("accessory_type"=>"2"));?>">领带</a></li>
+                <li><a href="<?php echo U("Order/index",array("accessory_type"=>"3"));?>">领结</a></li>
+                <li><a href="<?php echo U("Order/index",array("accessory_type"=>"4"));?>">衬衣</a></li>
             </ul>
         </div>
         
@@ -223,13 +225,20 @@
                 <a href="www.baidu.com">
                 <input type="radio" name="options" id="option1" checked> 男
                 </a>
+>>>>>>> 2d8b244877ddc3db13e00c95d5219db015294d3b
             </label>
             <label class="btn btn-primary style-link">
-                <input type="radio" name="options" id="option2"> <a href="#">女</a>
+                <input type="radio" name="options" id="option2"> <a href="<?php echo U("Order/index",array("gender"=>"1"));?>">女</a>
             </label>
+<<<<<<< HEAD
+        </div>
+        <div class="btn-group btn-pos" data-toggle="buttons">
+            <label class="btn btn-primary  close-peijian style-link">
+=======
         </div> -->
         <!-- <div class="btn-group btn-pos" data-toggle="buttons">
             <label class="btn btn-primary active close-peijian style-link">
+>>>>>>> 2d8b244877ddc3db13e00c95d5219db015294d3b
                     <input type="radio" name="options" id="option1" checked><a href="#">正装</a>
             </label>
             <label class="btn btn-primary findmore style-link">
@@ -237,7 +246,7 @@
             </label>
         </div>
         <div class="btn-group btn-pos display-peijian" data-toggle="buttons">
-            <label class="btn btn-primary active style-link ">
+            <label class="btn btn-primary  style-link ">
                 <input type="radio" name="options" id="option1" checked> <a href="#">鞋子</a>
             </label>
             <label class="btn btn-primary style-link">
@@ -286,6 +295,11 @@
     })
     $(".close-peijian").click(function(){
         $(".display-peijian").css("display","none");
+    })
+</script>
+<script type="text/javascript">
+    $("#showbox-inner a").click(function(){
+        alert(hehe);
     })
 </script>    
 </body>
