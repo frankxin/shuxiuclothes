@@ -200,7 +200,7 @@
     		<div class="order-detail">已将此商品加入购物车</div>
     		<div class="tab-pane" id="other">
                 <div class="image">
-                    <a href="#"><img src="../Public/images/1.jpg" width="100px" height="100px"></a>
+                    <a><img src="__PUBLIC__/upload<?php echo ($detail['image']); ?>"  width="150px" height="150px"></a>
                 </div>
                 <div class="detail">
                     <div>描述：<?php echo ($detail['description']); ?></div>
