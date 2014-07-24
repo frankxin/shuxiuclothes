@@ -26,8 +26,10 @@
 		public function detail()
 		{
 			$ca = D("CA");
+			var_dump($GLOBALS['HTTP_RAW_POST_DATA']);
 			$detail = $ca->getCAdetail($_GET['id']);
 			//$_SESSION['user']
+			$this->assign('psot',$_POST);
 			$this->assign('detail',$detail);
 			$this->display();
 		}
@@ -77,5 +79,11 @@
 			$ca = D("Order");
 			$ca->deleteCaFromCart($_GET['id']);
 			$this->display();
+		}
+
+		public function post()
+		{
+			$post = $_POST['name'];
+			$_POST['post'] = $post;
 		}
 	}
