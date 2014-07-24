@@ -247,7 +247,7 @@ function HS_setDate(inputObj){
         <div class="btn-group" data-toggle="buttons">
            
           <volist name="detail['size']" id="vo">
-            <label class="btn btn-primary ">
+            <label class="btn btn-primary size">
 
               <input type="radio" name="size" id="option{$key}" value="{$detail['size'][$key]}" > {$detail['size'][$key]}
             </label>
@@ -258,7 +258,7 @@ function HS_setDate(inputObj){
         <div class="btn-group" data-toggle="buttons">
           <volist name="detail['color']" id="vo">
 
-          <label class="btn btn-primary">
+          <label class="btn btn-primary color">
             <input type="radio" name="color" id="option{$key}" value="{$detail['color'][$key]}" > {$detail['color'][$key]}
           </label>
           </volist>
@@ -326,77 +326,60 @@ function HS_setDate(inputObj){
     };
     })
 
-  
-    // for (var i = 0; i < itime.length; i++) {
-    //   var vl = itime.eq(i).val();
-    //   itime.eq(i).attr("value" , vl); 
-    // };
-    
-
-    // changeColor("changecolor1");
-    // changeColor("changecolor2");
-
-    // function changeColor(id){
-    //   var id = "#" + id;
-    //   var btnColorchange = $(id);
-    //   function attachChange(index){
-    //       if(btnColorchange.eq(index).css("background-color") == "rgb(255, 255, 255)"){
-    //         btnColorchange.css("background-color","rgb(61, 118, 219)");
-    //         btnColorchange.css("color","rgb(255, 255, 255)");
-    //         for (var j = 0; j < btnColorchange.length; j++) {
-    //           if(btnColorchange.eq(j).css("background-color") == "rgb(255, 255, 255)"){
-    //               btnColorchange.eq(j).unbind()      
-    //             }
-    //         };
-    //       }else{
-    //         btnColorchange.css("background-color","rgb(255, 255, 255)");
-    //         btnColorchange.css("color","rgb(61, 118, 219)");
-    //         for (var j = 0; j < btnColorchange.length; j++) {
-    //           btnColorchange.eq(j).bind('click',attachChange(j));
-    //         };
-    //       }
-    //     }
-    //   for (var i = 0; i < btnColorchange.length; i++) {
-    //     btnColorchange.eq(i).bind('click',attachChange(i))
-    //   };
-    // }
     function getInfo(){
 
-      var getColor = $(".changecolor1");
-      var getSize = $(".changecolor2");
+      var getColor = $(".color input");
+      var getSize = $(".size input");
       var getHours = $(".item-time input");
       var size = [];
       var color = [];
       var hour = [];
 
-      for (var i = 0; i < getColor.length; i++) {
-        if (getColor.eq(i).css("color") == 'rgb(255, 255, 255)') {
-          var txt = getColor.eq(i).text();
-          color.push(txt);
-        };
-      };
+      // for (var i = 0; i < getColor.length; i++) {
+      //   if (getColor.eq(i).css("color") == 'rgb(255, 255, 255)') {
+      //     var txt = getColor.eq(i).text();
+      //     color.push(txt);
+      //   };
+      // };
 
-      for (var i = 0; i < getSize.length; i++) {
-        if(getSize.eq(i).css("color") == 'rgb(255, 255, 255)'){
-          var text = getSize.eq(i).text();
-          size.push(text); 
-        }
-      };
+      // for (var i = 0; i < getSize.length; i++) {
+      //   if(getSize.eq(i).css("color") == 'rgb(255, 255, 255)'){
+      //     var text = getSize.eq(i).text();
+      //     size.push(text); 
+      //   }
+      // };
+      var  size = $("input:radio[name='size']:checked").val();
+      if(size == null){
+        alert("亲，请选择尺寸");
+        return false;
+      }
+      var color = $("input:radio[name='color']:checked").val();
+      if(color == null){
+        alert("亲，请选择颜色");
+        return false;
+      }
 
       for (var i = 0; i < getHours.length; i++) {
         var itext = getHours.eq(i).val();
-        hour.push(itext);
+        var re = /-/g;
+        var replace = itext.replace(re , ""); 
+        hour.push(replace);
       };
-      console.log(size);
       console.log(color);
-      console.log(hour);
-      $.post({:U('Order/submit')} , {aa : "11"},function(data){alert(data));
+      console.log(size);
+
+
+      if(hour[1] <= hour[0]){
+        alert("亲，租赁时间必须多于1天");
+        return false;
+      }
     }
     
-    $(".item-goto-shoppingcar").click(function(){
-      getInfo();
+    $(".item-goto input").click(function(){
+      var status = getInfo();
+
+      return status;
     })
-    
 </script>
 
   </body>

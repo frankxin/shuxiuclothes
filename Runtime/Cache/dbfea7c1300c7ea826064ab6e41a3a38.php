@@ -409,14 +409,15 @@ function HS_setDate(inputObj){
         <span>型号：</span>
         <div class="btn-group" data-toggle="buttons">
            
-          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><label class="btn btn-primary ">
+          <?php if(is_array($detail['size'])): $i = 0; $__LIST__ = $detail['size'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><label class="btn btn-primary size">
+
               <input type="radio" name="size" id="option<?php echo ($key); ?>" value="<?php echo ($detail['size'][$key]); ?>" > <?php echo ($detail['size'][$key]); ?>
             </label><?php endforeach; endif; else: echo "" ;endif; ?>
         <input type=hidden name="id" value=<?php echo ($detail['id']); ?>>
         </div>
         <span>颜色：</span>
         <div class="btn-group" data-toggle="buttons">
-          <?php if(is_array($detail['color'])): $i = 0; $__LIST__ = $detail['color'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><label class="btn btn-primary">
+          <?php if(is_array($detail['color'])): $i = 0; $__LIST__ = $detail['color'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><label class="btn btn-primary color">
             <input type="radio" name="color" id="option<?php echo ($key); ?>" value="<?php echo ($detail['color'][$key]); ?>" > <?php echo ($detail['color'][$key]); ?>
           </label><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
@@ -466,6 +467,7 @@ function HS_setDate(inputObj){
        $(this).css("background-color","rgb(61, 118, 219)");
        $(this).css("color","rgb(255, 255, 255)")
     })
+
     $(".changecolor2").click(function(){
       $(this).siblings().css("background-color","rgb(255, 255, 255)");
       $(this).siblings().css("color","rgb(61, 118, 219)");
@@ -482,77 +484,60 @@ function HS_setDate(inputObj){
     };
     })
 
-  
-    // for (var i = 0; i < itime.length; i++) {
-    //   var vl = itime.eq(i).val();
-    //   itime.eq(i).attr("value" , vl); 
-    // };
-    
-
-    // changeColor("changecolor1");
-    // changeColor("changecolor2");
-
-    // function changeColor(id){
-    //   var id = "#" + id;
-    //   var btnColorchange = $(id);
-    //   function attachChange(index){
-    //       if(btnColorchange.eq(index).css("background-color") == "rgb(255, 255, 255)"){
-    //         btnColorchange.css("background-color","rgb(61, 118, 219)");
-    //         btnColorchange.css("color","rgb(255, 255, 255)");
-    //         for (var j = 0; j < btnColorchange.length; j++) {
-    //           if(btnColorchange.eq(j).css("background-color") == "rgb(255, 255, 255)"){
-    //               btnColorchange.eq(j).unbind()      
-    //             }
-    //         };
-    //       }else{
-    //         btnColorchange.css("background-color","rgb(255, 255, 255)");
-    //         btnColorchange.css("color","rgb(61, 118, 219)");
-    //         for (var j = 0; j < btnColorchange.length; j++) {
-    //           btnColorchange.eq(j).bind('click',attachChange(j));
-    //         };
-    //       }
-    //     }
-    //   for (var i = 0; i < btnColorchange.length; i++) {
-    //     btnColorchange.eq(i).bind('click',attachChange(i))
-    //   };
-    // }
     function getInfo(){
 
-      var getColor = $(".changecolor1");
-      var getSize = $(".changecolor2");
+      var getColor = $(".color input");
+      var getSize = $(".size input");
       var getHours = $(".item-time input");
       var size = [];
       var color = [];
       var hour = [];
 
-      for (var i = 0; i < getColor.length; i++) {
-        if (getColor.eq(i).css("color") == 'rgb(255, 255, 255)') {
-          var txt = getColor.eq(i).text();
-          color.push(txt);
-        };
-      };
+      // for (var i = 0; i < getColor.length; i++) {
+      //   if (getColor.eq(i).css("color") == 'rgb(255, 255, 255)') {
+      //     var txt = getColor.eq(i).text();
+      //     color.push(txt);
+      //   };
+      // };
 
-      for (var i = 0; i < getSize.length; i++) {
-        if(getSize.eq(i).css("color") == 'rgb(255, 255, 255)'){
-          var text = getSize.eq(i).text();
-          size.push(text); 
-        }
-      };
+      // for (var i = 0; i < getSize.length; i++) {
+      //   if(getSize.eq(i).css("color") == 'rgb(255, 255, 255)'){
+      //     var text = getSize.eq(i).text();
+      //     size.push(text); 
+      //   }
+      // };
+      var  size = $("input:radio[name='size']:checked").val();
+      if(size == null){
+        alert("亲，请选择尺寸");
+        return false;
+      }
+      var color = $("input:radio[name='color']:checked").val();
+      if(color == null){
+        alert("亲，请选择颜色");
+        return false;
+      }
 
       for (var i = 0; i < getHours.length; i++) {
         var itext = getHours.eq(i).val();
-        hour.push(itext);
+        var re = /-/g;
+        var replace = itext.replace(re , ""); 
+        hour.push(replace);
       };
-      console.log(size);
       console.log(color);
-      console.log(hour);
-      $.post("<?php echo U('Order/submit');?>" , {sizes : size,colors : color ,hours : hour},function(data){alert(data);});
+      console.log(size);
+
+
+      if(hour[1] <= hour[0]){
+        alert("亲，租赁时间必须多于1天");
+        return false;
+      }
     }
     
-    $(".item-goto-shoppingcar").click(function(){
-      getInfo();
+    $(".item-goto input").click(function(){
+      var status = getInfo();
+
+      return status;
     })
-    
 </script>
 
   </body>

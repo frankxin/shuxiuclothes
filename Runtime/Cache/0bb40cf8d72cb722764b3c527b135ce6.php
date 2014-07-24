@@ -299,7 +299,10 @@
 </script>
 <script type="text/javascript">
     $("#showbox-inner a").click(function(){
-        alert(hehe);
+        var name = "zhang";
+        var age = 20;
+
+        $.post("php",{name : name ,age : age});
     })
 </script>    
 </body>
