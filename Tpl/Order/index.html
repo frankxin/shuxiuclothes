@@ -141,7 +141,9 @@
         var name = "zhang";
         var age = 20;
 
-        $.post("php",{name : name ,age : age});
+        console.log("{:U("Order/detail")}");
+
+        $.post("{:U("Order/detail")}",{name : name ,age : age});
     })
 </script>    
 </body>

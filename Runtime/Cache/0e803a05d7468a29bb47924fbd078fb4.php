@@ -1,23 +1,26 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>submit</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../Public/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../Public/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../Public/css/list.css">
+    <link rel="stylesheet" type="text/css" href="../Public/css/submit.css">
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../Public/js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <style type="text/css">
-    body{
-    	background:url("../Public/images/mybg.jpg");
-    }
-    </style>
+  	<script src="../Public/js/jquery.slides.min.js"></script>
+  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 	<div id="zzx-header-top">
@@ -184,128 +187,26 @@
       }
     </script>
 
+    <div class="clear"></div>
 
-    <div id="content">
-    <!--选衣服流程-->
-    <!-- Split button -->
- <!--  	<div id="select-order">
-    	<ul>
-    		<li><a href="#"><img src="../Public/images/select1.jpg"></a></li>
-    		<li><a href="page1.1.html"><img src="../Public/images/selected2.jpg"></a></li>
-    		<li><a href="#"><img src="../Public/images/select-disable3.jpg"></a></li>
-    	</ul>    		
-    </div> -->
-    <!--条件选择-->
-    <!-- Split button -->
-    <div style="border-bottom: 3px dashed white;border-radius: 4px;padding-left: 145px;">
-
-        <div id="map">
-            <ul>
-                <li><a href="<?php echo U("Order/index",array("gender"=>"0"));?>">男</a></li>
-                <li><a href="<?php echo U("Order/index",array("gender"=>"1"));?>">女</a></li>
-            </ul>
-        </div>
-        <div id="map">
-            <ul>
-                <li><a href="<?php echo U("Order/index",array("type"=>"0"));?>">正装</a></li>
-                <li><a href="<?php echo U("Order/index",array("type"=>"1"));?>">配件</a></li>
-            </ul>
-        </div>
-        <div id="map">
-            <ul>
-                <li><a href="<?php echo U("Order/index",array("accessory_type"=>"1"));?>">鞋子</a></li>
-                <li><a href="<?php echo U("Order/index",array("accessory_type"=>"2"));?>">领带</a></li>
-                <li><a href="<?php echo U("Order/index",array("accessory_type"=>"3"));?>">领结</a></li>
-                <li><a href="<?php echo U("Order/index",array("accessory_type"=>"4"));?>">衬衣</a></li>
-            </ul>
-        </div>
-        
-        <!-- <div class="btn-group btn-pos" data-toggle="buttons">
-            <label class="btn btn-primary active style-link">
-                <a href="www.baidu.com">
-                <input type="radio" name="options" id="option1" checked> 男
-                </a>
->>>>>>> 2d8b244877ddc3db13e00c95d5219db015294d3b
-            </label>
-            <label class="btn btn-primary style-link">
-                <input type="radio" name="options" id="option2"> <a href="<?php echo U("Order/index",array("gender"=>"1"));?>">女</a>
-            </label>
-<<<<<<< HEAD
-        </div>
-        <div class="btn-group btn-pos" data-toggle="buttons">
-            <label class="btn btn-primary  close-peijian style-link">
-=======
-        </div> -->
-        <!-- <div class="btn-group btn-pos" data-toggle="buttons">
-            <label class="btn btn-primary active close-peijian style-link">
->>>>>>> 2d8b244877ddc3db13e00c95d5219db015294d3b
-                    <input type="radio" name="options" id="option1" checked><a href="#">正装</a>
-            </label>
-            <label class="btn btn-primary findmore style-link">
-                <input type="radio" name="options" id="option2" > <a href="#">配件</a>
-            </label>
-        </div>
-        <div class="btn-group btn-pos display-peijian" data-toggle="buttons">
-            <label class="btn btn-primary  style-link ">
-                <input type="radio" name="options" id="option1" checked> <a href="#">鞋子</a>
-            </label>
-            <label class="btn btn-primary style-link">
-                <input type="radio" name="options" id="option2"><a href="#">领带</a>
-            </label>
-            <label class="btn btn-primary style-link">
-                <input type="radio" name="options" id="option3"><a href="#">衬衫</a>
-            </label>
-        </div> -->
-    </div>
-    <!-- <div id="some-choice-all">
-    	<div id="sex" class="some-choice" style="font-size:20px;line-height: 1.618; color:#ccc;">
-    	请选择性别：<a href="<?php echo U('Order/index',array('gender'=>0));?>"><span class="choice-deco">男</span></a><a href="<?php echo U('Order/index',array('gender'=>1));?>" ><span class="choice-deco">女</span></a>
+    <!--main content-->
+    <div class="main-content">
+    	<div class="ad">
+ 			<span class="ad-content">
+    		感谢您对蜀秀的支持！
+    		</span>
     	</div>
-    </div> -->
-    <!--衣服展示-->
-    <div style="position:relative;">
-        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div id="showbox">
-                    <div id="showbox-inner">
-                    <a href="<?php echo U("Order/detail",array("id"=>$vo['id']));?>" target="_blank"><img src="__PUBLIC__/upload<?php echo ($vo['imgs']['imgurl']); ?>" width="220px" height="220px" style="overflow:hidden;"></a>
-                    <div class="details">
-                     <p><?php echo ($vo["description"]); ?></p>
-                        <div id="price">
-                            <?php echo ($vo["price"]); ?>RMB<span>/天</span>
-                        </div>
-                    </div>
+    	<div class="order">
+    		<div class="order-detail">已生成订单</div>
+    		<div class="tab-pane" id="other">
+                <div class="image">
+                    <a href="#"><img src="../Public/images/1.jpg" width="100px" height="100px"></a>
                 </div>
-            </div><?php endforeach; endif; else: echo "" ;endif; ?>
-        
-    <div id="index">
-    	<ul class="pagination pagination-lg">
-            <?php echo ($page); ?>
-		</ul>
+            </div>
+			<div class="order-submit">
+				<div class="submit"><a href="<?php echo U('Order/index');?>">返回购物</a></div>
+			</div>
+    	</div>
     </div>
-    </div>
-<script type="text/javascript">
-    var oActive=document.getElementById("active");
-    var oUl=oActive.getElementsByTagName("ul");
-    var aLi=oUl[0].getElementsByTagName("li");
-
-    aLi[1].className+="zzx-active";
-</script>
-<script type="text/javascript">
-    $(".findmore").click(function(){
-        $(".display-peijian").css("display","inline-block");
-    })
-    $(".close-peijian").click(function(){
-        $(".display-peijian").css("display","none");
-    })
-</script>
-<script type="text/javascript">
-    $("#showbox-inner a").click(function(){
-        var name = "zhang";
-        var age = 20;
-
-        console.log("<?php echo U("Order/detail");?>");
-
-        $.post("<?php echo U("Order/detail");?>",{name : name ,age : age});
-    })
-</script>    
 </body>
 </html>

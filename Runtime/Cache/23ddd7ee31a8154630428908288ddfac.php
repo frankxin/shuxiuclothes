@@ -404,6 +404,7 @@ function HS_setDate(inputObj){
         </div>
       </div>
       <!-- indexCon end -->
+      
     <form action="<?php echo U('Order/submit');?>" method="post">
       <div class="intro">
         <span>型号：</span>
