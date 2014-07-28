@@ -28,9 +28,27 @@
                     <th>颜色</th>
                     <th>价格</th>
                     <th>租赁时间</th>
+                    <th>状态</th>
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>frankxin</td>
+                    <td>18380421239</td>
+                    <td>黑丝袜正装</td>
+                    <td>170</td>
+                    <td>红</td>
+                    <td>12</td>
+                    <td>2014-7-13到2014-7-14</td>
+                    <td>
+                        <select class="form-control">
+                          <option>未付款</option>
+                          <option>已付款进行中</option>
+                          <option>已完成订单</option>
+                        </select>
+                    </td>
+                </tr>
                 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                         <td><?php echo ($vo["id"]); ?></td>
                         <td><?php echo ($vo["real_name"]); ?></td>

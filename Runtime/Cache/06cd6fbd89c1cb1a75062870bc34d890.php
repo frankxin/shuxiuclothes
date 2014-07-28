@@ -20,8 +20,7 @@
 <div class="position">
 <ul class="nav nav-tabs">
   <li><a href="<?php echo U("Admin/adminList",array('right'=>1));?>">经理层</a></li>
-  <li><a href="<?php echo U("Admin/adminList",array('right'=>2));?>">市场推广层</a></li>
-  <li><a href="<?php echo U("Admin/adminList",array('right'=>3));?>">店面管理</a></li>
+  <li><a href="<?php echo U("Admin/adminList",array('right'=>2));?>">市场店面推广层</a></li>
 </ul>
 <!-- Tab panes -->
 <div class="tab-content">

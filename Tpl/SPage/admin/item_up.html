@@ -84,108 +84,116 @@
                 echo "<h4 style='color:red'>请重新编辑以下信息，或点击返回键取消编辑</h4>";
         ?>
         <div class="btn-group locate" data-toggle="buttons">
-          <label class="btn btn-primary active">
-            <input type="radio" name="gender" id="option1" value="0" checked>男性
+          <label class="btn btn-primary">
+            <input type="radio" name="gender" id="option1" value="男性" >男性
           </label>
           <label class="btn btn-primary">
-            <input type="radio" name="gender" id="option2" value="1"> 女性
+            <input type="radio" name="gender" id="option2" value="女性"> 女性
+          </label>
+        </div>
+        <div class="btn-group locate type" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="type" id="option1" value="正装" > 正装
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="type" id="option2" value="配件"> 配件
+          </label>
+        </div>
+        <div class="btn-group locate peijian" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="peijian_type" id="option1" value="鞋"> 鞋
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="peijian_type" id="option2" value="领带"> 领带
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="peijian_type" id="option3" value="衬衫"> 衬衫
+          </label>
+        </div>
+        <div class="btn-group locate clothes_size" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option1" value="34"> 155
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option2" value="35"> 160
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="36"> 165
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="37"> 170
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="38"> 175
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="39"> 180
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="40"> 185
+          </label>
+        </div>
+        <div class="btn-group locate  shoe_size" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option1" value="34"> 34
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option2" value="35"> 35
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="36"> 36
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="37"> 37
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="38"> 38
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="39"> 39
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="40"> 40
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="41"> 41
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="42"> 42
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="size" id="option3" value="43"> 43
           </label>
         </div>
         <div class="btn-group locate" data-toggle="buttons">
-          <label class="btn btn-primary active">
-            <input type="radio" name="type" id="option1" value="0" checked> 正装
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option1" value="黑色"> 黑色
           </label>
           <label class="btn btn-primary">
-            <input type="radio" name="type" id="option2" value="1"> 配件
+            <input type="radio" name="color" id="option2" value="花色"> 花色
           </label>
-        </div>
-            男性：
-            <input type="radio" checked="checked" name="gender" value="0" />
-            女性：
-            <input type="radio" name="gender" value="1" /></br>
-        <div id="select-cata1">
-            正装:
-            <input type="radio" checked="checked" name="type" value="0" id="getRadio" />
-            配件:
-            <input type="radio" name="type" value="1" id="getRadio" />
-        </div>
-        
-        <div id="display-control1">
-        	<div>
-                蓝色：
-                <input type="radio" checked="checked" name="color[]" value="blue" />
-                黑色：
-                <input type="radio" name="color[]" value="black" />
-            </div>
-            <div>
-                160
-                <input type="checkbox" name="size[]" value="160">
-                165
-                <input type="checkbox" name="size[]" value="165">
-                170
-                <input type="checkbox" name="size[]" value="170">
-                175
-                <input type="checkbox" name="size[]" value="175">
-                180
-                <input type="checkbox" name="size[]" value="180">
-            </div>
-        </div>
-        <div id="display-control2">
-            
-                鞋：
-                <input type="radio" value="1" name="accessory_type">
-                衬衫：
-                <input type="radio" value="4" name="accessory_type">
-                领带：
-                <input type="radio" value="2" name="accessory_type">
-             
-        </div>
-        <div id="display-control-shoe">
-            <div>
-                34
-                <input type="checkbox" name=size[]>  
-                35  
-                <input type="checkbox" name=size[]>  
-                36
-                <input type="checkbox" name=size[]>     
-                37
-                <input type="checkbox" name=size[]>    
-                38
-                <input type="checkbox" name=size[]>  
-                39 
-                <input type="checkbox" name=size[]> 
-                40
-                <input type="checkbox" name=size[]>  
-                41  
-                <input type="checkbox" name=size[]>              
-                42 
-                <input type="checkbox" name=size[]>              
-                43
-                <input type="checkbox" name=size[]>  
-            </div>
-            <div>
-                黑色：
-                <input type="checkbox" name=color[]>
-            </div>
-        </div>
-        <div id="display-control-shirt">
-            <div>
-                花色：
-                <input type="checkbox" name=color[]>
-                白色：
-                <input type="checkbox" name=color[]>
-            </div>
-        </div>
-        <div id="display-control-tie">
-            红：
-            <input type="checkbox" name=color[]>
-            粉：
-            <input type="checkbox" name=color[]>
-            深蓝：
-            <input type="checkbox" name=color[]>
-            花色：
-            <input type="checkbox" name=color[]>
-        </div>   
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option2" value="花色"> 蓝色
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option2" value="花色"> 褐色
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option2" value="花色"> 灰色
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option3" value="白色"> 白色
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option3" value="红"> 红
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option3" value="粉"> 粉
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="color" id="option3" value="深蓝"> 深蓝
+          </label>
+        </div> 
         <div>
             <button class="ibutton">确认发布</button>
             <?php if($edit){ ?>
@@ -195,5 +203,20 @@
 	</div>
     </form>
 </div>
+<script type="text/javascript">
+    $(".clothes_size").css("display","none");
+    $(".peijian").css("display","none");
+    $(".shoe_size").css("display","none");
+    $(".type label").click(function(){
+        if($(this).children("input").val() == '正装'){
+            $(".clothes_size").css("display","inline-block");
+            $(".peijian").css("display","none");
+        }else{
+            $(".clothes_size").css("display","none");
+            $(".peijian").css("display","inline-block");
+        }
+    })
+
+</script>
 </body>
 </html>

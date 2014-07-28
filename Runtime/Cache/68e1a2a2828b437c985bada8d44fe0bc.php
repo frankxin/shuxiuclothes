@@ -30,6 +30,9 @@
         	<li>
         		<a href="other_manage.html" target="mainframe">配件管理</a>
         	</li>
+          <li>
+            <a href="<?php echo U("Admin/item_up");?>" target="mainframe">货品上架</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -46,10 +49,10 @@
       <div class="panel-body">
         <ul>
         	<li>
-        		<a href="<?php echo U("Admin/order_on");?>" target="mainframe">未付款订单</a>
+        		<a href="<?php echo U("Admin/order_money");?>" target="mainframe">未付款订单</a>
         	</li>
         	<li>
-            <a href="#">已付款进行中</a>
+            <a href="<?php echo U("Admin/order_on");?>" target="mainframe">已付款进行中</a>
           </li>
         	<li>
         		<a href="<?php echo U("Admin/order_complete");?>" target="mainframe">已完成订单</a>
@@ -124,9 +127,6 @@
         <ul>
         	<li>
         		<a href="changephoto.html" target="mainframe">前端图片更换</a>
-        	</li>
-        	<li>
-        		<a href="<?php echo U("Admin/item_up");?>" target="mainframe">货品上架</a>
         	</li>
         </ul>
       </div>
