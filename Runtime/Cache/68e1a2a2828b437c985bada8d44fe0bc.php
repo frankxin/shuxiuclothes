@@ -144,7 +144,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a href="{}" target="mainframe">
+        <a href="<?php echo U("Admin/articlemanage");?>" target="mainframe">
           文章管理
         </a>
       </h4>
